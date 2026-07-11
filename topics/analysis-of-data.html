@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Analysis of Data — Core Maths Compendium</title>
+<link rel="stylesheet" href="../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#papers">Exam Structure</a>
+  <a href="../index.html#topics">Topics</a>
+  <a href="../papers.html">Past Papers</a>
+  <a href="../resources/index.html">Resources</a>
+</div>
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a> / Analysis of Data</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.1 · Paper 1 · Compulsory</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Analysis of Data</h1>
+    <p class="lede">Collecting, summarising and displaying data — the foundation skill that every other topic in Core Maths builds on.</p>
+  </div>
+</header>
+<section class="section"><div class="container"><div class="sub-block reveal">
+  <div class="sub-head open">
+    <h3>Types of data and sampling</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.1a</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>Data is either <strong>primary</strong> (you collect it yourself) or <strong>secondary</strong> (collected by someone else), and either <strong>discrete</strong> (counted, e.g. number of goals) or <strong>continuous</strong> (measured, e.g. time, height).</p>
+        <p>A good sample should be <strong>representative</strong> of the population it's drawn from. Common sampling methods:</p>
+        <ul style="margin:.8rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:1.8;">
+          <li><strong>Random sampling</strong> — every member of the population has an equal chance of being chosen.</li>
+          <li><strong>Stratified sampling</strong> — the population is split into groups (strata), and a sample is taken from each group in proportion to its size.</li>
+          <li><strong>Systematic sampling</strong> — you select every $n$th item from a list.</li>
+          <li><strong>Quota sampling</strong> — you sample until you've filled fixed quotas for different groups (not necessarily randomly within each group).</li>
+        </ul>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Averages and spread</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.1b</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>The three averages: <strong>mean</strong> (sum ÷ count), <strong>median</strong> (middle value when ordered), <strong>mode</strong> (most frequent value). Each has strengths — the median isn't distorted by extreme outliers the way the mean is, which matters when a dataset is skewed.</p>
+        <p>Measures of spread: the <strong>range</strong> (max − min) is simple but sensitive to outliers; the <strong>interquartile range (IQR)</strong> = $Q_3 - Q_1$ ignores the top and bottom quarter of the data, so it's more robust; <strong>standard deviation</strong> measures the typical distance of values from the mean and uses every data point.</p>
+        <p>For <strong>grouped data</strong>, you don't know the exact values, so you use the <strong>midpoint</strong> of each class interval to estimate the mean, and identify the <strong>modal class</strong> (the class with the highest frequency) rather than a single mode.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Statistical diagrams</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.1c</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>Different diagrams suit different questions:</p>
+        <ul style="margin:.8rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:1.8;">
+          <li><strong>Stem-and-leaf diagrams</strong> — show every data value while grouping by size; easy to read off the median and range.</li>
+          <li><strong>Box plots (box-and-whisker)</strong> — show the minimum, $Q_1$, median, $Q_3$ and maximum in one picture; ideal for comparing the spread and skew of two or more datasets side by side.</li>
+          <li><strong>Cumulative frequency graphs</strong> — plot running totals against the upper class boundary; used to read off the median and quartiles for grouped data, and to estimate how many values lie above or below a given value.</li>
+          <li><strong>Histograms</strong> — like bar charts but for continuous, grouped data with unequal class widths; the <strong>area</strong> of each bar (not the height) represents frequency, so the vertical axis is <strong>frequency density</strong> = frequency ÷ class width.</li>
+        </ul>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Comparing datasets</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.1d</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>Exam questions often ask you to compare two datasets. Always compare <strong>both</strong> an average (which is typically higher/lower) <strong>and</strong> a measure of spread (which is more consistent/variable) — and write your comparison <strong>in context</strong>, not just as bare numbers.</p>
+        <p>An <strong>outlier</strong> is a value that's unusually far from the rest of the data. A common rule: a value is an outlier if it's more than $1.5 \times \text{IQR}$ beyond $Q_1$ or $Q_3$. Outliers can be genuine (worth investigating) or errors (worth removing) — the context decides which.</p>
+  </div>
+</div>
+<div class="callout green reveal" style="margin-top:1.4rem;">
+  <strong>Worked example</strong><br/><br/>
+  <p><strong>Two branches of a gym record the number of visitors each day for 30 days.</strong> Branch A has mean 142 and standard deviation 18. Branch B has mean 137 and standard deviation 6.</p>
+    <p><em>Compare the two branches.</em></p>
+    <p>Branch A has a higher mean (142 vs 137), so on average it gets more visitors per day. However, Branch A also has a much higher standard deviation (18 vs 6), meaning its daily visitor numbers are far more variable/inconsistent than Branch B's, which has a steadier, more predictable flow of visitors.</p>
+</div><div class="callout reveal" style="margin-top:1.4rem;">
+  <strong>Exam tip.</strong> When comparing datasets, always link your numbers back to the real-world context — "Branch A is busier but less consistent" scores marks that "142 > 137" alone does not.
+</div><div class="section-head reveal" style="margin-top:2.8rem;">
+      <p class="kicker">Practice</p>
+      <h2>Resources for this topic</h2>
+    </div>
+    <div class="res-list">
+      <a href="https://docs.google.com/presentation/d/1rnhsLD495YduPOFWdJg023eou94dmuzd/edit?usp=drive_link" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📊</div>
+        <div><h4>Lesson presentation</h4><p>Google Slides</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="../worksheets/Chapter%201%20Analysis_of_Data_Worksheets.pdf" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📝</div>
+        <div><h4>Additional worksheet</h4><p>PDF · printable</p></div>
+        <span class="res-type">Download</span>
+      </a><a href="../end%20of%20topics%20tests/Chapter%201%20core_maths_end_of_topic_test%201.pdf" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📄</div>
+        <div><h4>End-of-topic test A</h4><p>PDF · printable</p></div>
+        <span class="res-type">Download</span>
+      </a><a href="../end%20of%20topics%20tests/chapter%201%20core_maths_end_of_topic_test%202.pdf" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📄</div>
+        <div><h4>End-of-topic test B</h4><p>PDF · printable</p></div>
+        <span class="res-type">Download</span>
+      </a>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center;">
+      <a href="../resources/index.html" class="btn btn-dark">← Back to Resources</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>

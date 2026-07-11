@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Probabilities &amp; Estimation — Core Maths Compendium</title>
+<link rel="stylesheet" href="../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#papers">Exam Structure</a>
+  <a href="../index.html#topics">Topics</a>
+  <a href="../papers.html">Past Papers</a>
+  <a href="../resources/index.html">Resources</a>
+</div>
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a> / Probabilities &amp; Estimation</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.6 · Paper 2A · Statistical Techniques</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Probabilities &amp; Estimation</h1>
+    <p class="lede">Sampling distributions, confidence intervals and estimating population values from samples.</p>
+  </div>
+</header>
+<section class="section"><div class="container"><div class="sub-block reveal">
+  <div class="sub-head open">
+    <h3>Point estimates</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.6a</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>The mean of a random sample is called a <strong>point estimate</strong> for the mean of the whole population. A point estimate from a larger sample is generally more reliable than one from a small sample, since it's less affected by chance variation between individual items — it's not sensible to draw firm conclusions from a sample of size 1.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>The distribution of the sample mean</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.6b</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>If you repeatedly take random samples from a population and calculate the mean of each, those sample means themselves form a distribution — one that clusters more tightly around the true population mean than individual values do. For samples of size $n$ from $N(\mu, \sigma^2)$, the sample mean $\bar{X}$ has distribution:
+        $$\bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)$$
+        The standard deviation of this distribution, $\dfrac{\sigma}{\sqrt{n}}$, is called the <strong>standard error of the mean</strong> — notice that it shrinks as the sample size $n$ grows.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Confidence intervals</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.6c</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>A point estimate alone doesn't say how reliable it is. A <strong>confidence interval</strong> gives a range of plausible values together with a stated level of confidence:
+        $$\bar{x} \pm z \times \frac{\sigma}{\sqrt{n}}$$
+        The most common values of $z$: <strong>90%</strong> confidence uses $z=1.64$, <strong>95%</strong> uses $z=1.96$, and <strong>99%</strong> uses $z=2.58$. A higher confidence level always gives a <em>wider</em> interval, and a larger sample size always gives a <em>narrower</em> one.</p>
+  </div>
+</div>
+<div class="callout green reveal" style="margin-top:1.4rem;">
+  <strong>Worked example</strong><br/><br/>
+  <p><strong>A random sample of 25 boxes of cereal, assumed normally distributed with standard deviation 6 g, has a sample mean weight of 502 g.</strong></p>
+    <p><em>Find a 95% confidence interval for the true mean weight of a box of cereal.</em></p>
+    <p>Standard error $= \dfrac{6}{\sqrt{25}} = 1.2$</p>
+    <p>95% CI: $502 \pm 1.96 \times 1.2 = 502 \pm 2.352$, giving the interval $(499.6, 504.4)$ to 1 d.p.</p>
+</div><div class="callout reveal" style="margin-top:1.4rem;">
+  <strong>Exam tip.</strong> If a question asks you to interpret a confidence interval, never say there's 'a 95% chance the true mean is in this interval' — the correct interpretation is that if you repeated the sampling process many times, about 95% of the intervals produced would contain the true mean.
+</div><div class="section-head reveal" style="margin-top:2.8rem;">
+      <p class="kicker">Practice</p>
+      <h2>Resources for this topic</h2>
+    </div>
+    <div class="res-list">
+      <a href="https://docs.google.com/presentation/d/1ARjM4gH-fcAKXJZ8RbGaptHAfivX5C79/edit?usp=drive_link" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📊</div>
+        <div><h4>Lesson presentation</h4><p>Google Slides</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="../worksheets/Chapter_6_Probabilities%20and%20Estimation%20Worksheets.pdf" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📝</div>
+        <div><h4>Additional worksheet</h4><p>PDF · printable</p></div>
+        <span class="res-type">Download</span>
+      </a><a href="../end%20of%20topics%20tests/chapter%206%20core_maths_end_of_topic_test.pdf" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📄</div>
+        <div><h4>End-of-topic test</h4><p>PDF · printable</p></div>
+        <span class="res-type">Download</span>
+      </a>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center;">
+      <a href="../resources/index.html" class="btn btn-dark">← Back to Resources</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>

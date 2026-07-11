@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Estimation — Core Maths Compendium</title>
+<link rel="stylesheet" href="../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#papers">Exam Structure</a>
+  <a href="../index.html#topics">Topics</a>
+  <a href="../papers.html">Past Papers</a>
+  <a href="../resources/index.html">Resources</a>
+</div>
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a> / Estimation</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.3 · Paper 1 · Compulsory</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Estimation</h1>
+    <p class="lede">Fermi estimation, sensible rounding and sanity-checking answers — a short unit, but easy marks if practised.</p>
+  </div>
+</header>
+<section class="section"><div class="container"><div class="sub-block reveal">
+  <div class="sub-head open">
+    <h3>Fermi estimation</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.3a</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>A <strong>Fermi estimate</strong> answers a question you can't look up directly (e.g. "how many football fans watch Premier League games in a season?") by breaking it into smaller quantities you <em>can</em> reasonably estimate, then combining them.</p>
+        <p>The method: identify the quantities you need, make sensible assumptions for each (round numbers are fine — you're aiming for the right order of magnitude, not precision), then multiply/divide them together.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Sensible degrees of accuracy</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.3b</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>An estimate is only as good as its weakest assumption, so it should never be given to more decimal places than the data justifies. If your inputs are rounded to 1 significant figure, your answer shouldn't pretend to be accurate to the nearest whole number.</p>
+        <p><strong>Upper and lower bounds:</strong> a rounded measurement like "80 m to the nearest 10 m" could really be anywhere from 75 m up to (but not including) 85 m. When quantities are combined, bounds can be used to find the largest and smallest possible values of a calculation.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Estimating with formulae and unit conversion</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.3c</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>Many estimation questions combine a real formula (area, volume, speed = distance ÷ time) with unit conversion. Always convert to consistent units <em>before</em> calculating, and check your final answer is a sensible size for the context — a common exam skill is spotting when an answer is out by a factor of 1000 because of a units slip.</p>
+  </div>
+</div>
+<div class="callout green reveal" style="margin-top:1.4rem;">
+  <strong>Worked example</strong><br/><br/>
+  <p><strong>Estimate the number of people who attend Premier League football matches in a single season.</strong></p>
+    <p>Break it down: roughly 20 teams, each playing 19 home games in a season $\Rightarrow$ about $20\times19 = 380$ matches. A typical stadium holds around 40,000 people, and assume grounds are roughly 80\% full on average.</p>
+    <p>Estimate: $380 \times 40\,000 \times 0.8 \approx 12.2$ million attendances across the season.</p>
+    <p>(This counts attendances, not unique people — the same fan attending many matches is counted each time, which is worth stating as an assumption.)</p>
+</div><div class="callout reveal" style="margin-top:1.4rem;">
+  <strong>Exam tip.</strong> State your assumptions explicitly — in a Fermi estimation question, the method and the reasonableness of your assumptions earn marks, not just the final number.
+</div><div class="section-head reveal" style="margin-top:2.8rem;">
+      <p class="kicker">Practice</p>
+      <h2>Resources for this topic</h2>
+    </div>
+    <div class="res-list">
+      <a href="https://docs.google.com/presentation/d/1mIXlcdoq8Mrc53kAAlK9fo3o1JTq8Z96/edit?usp=drive_link" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📊</div>
+        <div><h4>Lesson presentation</h4><p>Google Slides</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="../worksheets/Chapter_3_Modelling%20and%20Estimation%20Worksheets.pdf" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📝</div>
+        <div><h4>Additional worksheet</h4><p>PDF · printable</p></div>
+        <span class="res-type">Download</span>
+      </a><a href="../end%20of%20topics%20tests/chapter%203%20core_maths_end_of_topic_test.pdf" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📄</div>
+        <div><h4>End-of-topic test</h4><p>PDF · printable</p></div>
+        <span class="res-type">Download</span>
+      </a>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center;">
+      <a href="../resources/index.html" class="btn btn-dark">← Back to Resources</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>

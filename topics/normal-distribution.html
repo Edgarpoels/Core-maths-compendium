@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Normal Distribution — Core Maths Compendium</title>
+<link rel="stylesheet" href="../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#papers">Exam Structure</a>
+  <a href="../index.html#topics">Topics</a>
+  <a href="../papers.html">Past Papers</a>
+  <a href="../resources/index.html">Resources</a>
+</div>
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a> / The Normal Distribution</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.5 · Paper 2A · Statistical Techniques</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">The Normal Distribution</h1>
+    <p class="lede">Bell curves, standardising and probabilities from the normal model — the signature topic of option 2A.</p>
+  </div>
+</header>
+<section class="section"><div class="container"><div class="sub-block reveal">
+  <div class="sub-head open">
+    <h3>Features of a normal distribution</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.5a</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>A normal distribution is symmetrical and bell-shaped, written $N(\mu, \sigma^2)$ where $\mu$ is the mean and $\sigma$ is the standard deviation. As a rule of thumb: about 68\% of data lies within 1 standard deviation of the mean, about 95\% within 2 s.d., and virtually all of it within 3 s.d.</p>
+        <p>Many real-world measurements — heights, reaction times, manufacturing errors — are well modelled by a normal distribution, even though it's always an approximation to the real data.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Standardising: z-values</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.5b</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>To find a probability for <em>any</em> normal distribution, you first convert ("standardise") a value $x$ into a <strong>z-value</strong>, which tells you how many standard deviations $x$ is from the mean:
+        $$z = \frac{x-\mu}{\sigma}$$
+        This converts $N(\mu,\sigma^2)$ into the <strong>standard normal distribution</strong> $N(0,1)$, for which probabilities are tabulated as $\Phi(z) = P(Z<z)$. Because the curve is symmetrical, $\Phi(-z) = 1-\Phi(z)$.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Finding probabilities and inverse problems</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.5c</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body open" style="max-height:2200px;">
+    <p>Use your calculator or statistical tables to look up $\Phi(z)$ for a given z-value, or to work the other way: given a probability, find the z-value (and hence the original value of $x$) using the inverse normal function. Always sketch the curve and shade the region you want — it makes it far easier to spot whether you need $\Phi(z)$, $1-\Phi(z)$, or a difference of two areas.</p>
+  </div>
+</div>
+<div class="callout green reveal" style="margin-top:1.4rem;">
+  <strong>Worked example</strong><br/><br/>
+  <p><strong>The heights of a species of plant are normally distributed with mean 40 cm and standard deviation 6 cm.</strong></p>
+    <p><em>Find the probability that a randomly chosen plant is taller than 46.6 cm.</em></p>
+    <p>$z = \dfrac{46.6 - 40}{6} = 1.1$</p>
+    <p>$P(X > 46.6) = 1 - \Phi(1.1) = 1 - 0.8643 = 0.1357$</p>
+</div><div class="callout reveal" style="margin-top:1.4rem;">
+  <strong>Exam tip.</strong> A quick sketch of the bell curve with the mean marked and the target region shaded takes 10 seconds and prevents the single most common error in this topic: finding $\Phi(z)$ when you actually needed $1-\Phi(z)$.
+</div><div class="section-head reveal" style="margin-top:2.8rem;">
+      <p class="kicker">Practice</p>
+      <h2>Resources for this topic</h2>
+    </div>
+    <div class="res-list">
+      <a href="https://docs.google.com/presentation/d/1-Pfy1omWMDX5lCEb2vIN0fkxpfA4aRJl/edit?usp=drive_link" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📊</div>
+        <div><h4>Lesson presentation</h4><p>Google Slides</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="../worksheets/Chapter_5_Normal%20Distribution%20Worksheets.pdf" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📝</div>
+        <div><h4>Additional worksheet</h4><p>PDF · printable</p></div>
+        <span class="res-type">Download</span>
+      </a><a href="../end%20of%20topics%20tests/chapter%205%20core_maths_end_of_topic_test.pdf" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📄</div>
+        <div><h4>End-of-topic test</h4><p>PDF · printable</p></div>
+        <span class="res-type">Download</span>
+      </a>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center;">
+      <a href="../resources/index.html" class="btn btn-dark">← Back to Resources</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>
