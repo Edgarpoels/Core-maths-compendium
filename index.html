@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mr Pohl's Core Maths Compendium — AQA Level 3 Mathematical Studies (1350)</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body><nav>
+  <a href="index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="index.html#papers">Exam Structure</a>
+    <a href="index.html#topics">Topics</a>
+    <a href="index.html#papers2">Paper 2A</a>
+    <a href="papers.html">Past Papers</a>
+    <a href="resources/index.html">Resources</a>
+    <a href="index.html#getstarted">Start Here</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="index.html#papers">Exam Structure</a>
+  <a href="index.html#topics">Topics</a>
+  <a href="index.html#papers2">Paper 2A</a>
+  <a href="index.html#othertwo">2B &amp; 2C</a>
+  <a href="papers.html">Past Papers</a>
+  <a href="resources/index.html">Resources</a>
+  <a href="index.html#getstarted">Start Here</a>
+</div>
+<header class="hero">
+  <svg class="hero-plot" viewBox="0 0 1120 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path class="line" d="M 120 310 L 1020 30"/>
+    <circle cx="120" cy="304" r="5" style="animation-delay:0.6s"/><circle cx="210" cy="267" r="5" style="animation-delay:0.72s"/><circle cx="300" cy="257" r="5" style="animation-delay:0.84s"/><circle cx="390" cy="209" r="5" style="animation-delay:0.96s"/><circle cx="480" cy="184" r="5" style="animation-delay:1.08s"/><circle cx="570" cy="160" r="5" style="animation-delay:1.2s"/><circle cx="660" cy="151" r="5" style="animation-delay:1.3199999999999998s"/><circle cx="750" cy="105" r="5" style="animation-delay:1.44s"/><circle cx="840" cy="108" r="5" style="animation-delay:1.56s"/><circle cx="930" cy="63" r="5" style="animation-delay:1.6800000000000002s"/><circle cx="1020" cy="26" r="5" style="animation-delay:1.7999999999999998s"/>
+  </svg>
+  <div class="container">
+    <p class="hero-eyebrow">AQA 1350 · Level 3 Certificate</p>
+    <h1>Everything you need to <span class="hl">ace Core Maths</span>.</h1>
+    <p class="lede">Notes, videos, worked examples and exam questions for every topic of AQA Level 3 Mathematical Studies — organised exactly like the specification, built for Winchmore students.</p>
+    <div class="hero-cta">
+      <a href="#topics" class="btn btn-primary">Browse topics →</a>
+      <a href="#getstarted" class="btn btn-ghost">New here? Start here</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="papers">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">How the qualification works</p>
+      <h2>The exam structure</h2>
+      <p>Core Maths is 100% exam, sat at the end of the course. Everyone takes <strong>Paper 1</strong>. You then take <strong>one</strong> version of Paper 2 — your teacher chooses the option your class studies.</p>
+    </div>
+    <div class="glance reveal" style="margin-bottom:2rem;">
+      <div class="glance-cell"><div class="num">2</div><div class="lbl">Papers</div></div>
+      <div class="glance-cell"><div class="num">1½<span style="font-size:1rem;">h</span></div><div class="lbl">Per paper</div></div>
+      <div class="glance-cell"><div class="num">60</div><div class="lbl">Marks each</div></div>
+      <div class="glance-cell"><div class="num">A–E</div><div class="lbl">Grades</div></div>
+      <div class="glance-cell"><div class="num">100%</div><div class="lbl">Calculator</div></div>
+    </div>
+    <div class="papers">
+      <div class="paper-card reveal">
+        <span class="paper-tag">Paper 1 · Compulsory</span>
+        <h3>Paper 1</h3>
+        <div class="meta">1h 30m · 60 marks · everyone sits this</div>
+        <p>Covers the four compulsory topics: Analysis of Data, Maths for Personal Finance, Estimation, and Critical Analysis. Uses the pre-released Preliminary Material.</p>
+      </div>
+      <div class="paper-card optional reveal">
+        <span class="paper-tag">Paper 2 · Pick one</span>
+        <h3>Paper 2A / 2B / 2C</h3>
+        <div class="meta">1h 30m · 60 marks · one option only</div>
+        <p><strong>2A</strong> Statistical techniques · <strong>2B</strong> Critical path &amp; risk · <strong>2C</strong> Graphical &amp; decision techniques. Each pairs with compulsory content from Paper 1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="topics" style="background:var(--white);border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Paper 1 · everyone studies these</p>
+      <h2>Compulsory topics</h2>
+      <p>The four pillars of Core Maths. Master these first — they also feed into every Paper 2 option.</p>
+    </div>
+    <div class="topic-grid">
+      <a href="topics/analysis-of-data.html" class="topic-card reveal">
+  <div class="topic-num"><span>3.1 · Paper 1</span><span class="status ready">Ready</span></div>
+  <div class="topic-body">
+    <h3>Analysis of Data</h3>
+    <p>Averages, spread, diagrams and how to read real data critically. The bedrock of the whole course.</p>
+    <div class="topic-tags"><span>Averages</span><span>Std deviation</span><span>Box plots</span><span>Outliers</span></div>
+    <span class="topic-go">Open topic →</span>
+  </div>
+</a>
+<a href="topics/personal-finance.html" class="topic-card reveal">
+  <div class="topic-num"><span>3.2 · Paper 1</span><span class="status ready">Ready</span></div>
+  <div class="topic-body">
+    <h3>Maths for Personal Finance</h3>
+    <p>Tax, interest, loans, savings and budgeting. The most 'real-world' unit — money maths that actually matters.</p>
+    <div class="topic-tags"><span>Interest</span><span>Tax</span><span>AER/APR</span><span>Currency</span></div>
+    <span class="topic-go">Open topic →</span>
+  </div>
+</a>
+<a href="topics/estimation.html" class="topic-card reveal">
+  <div class="topic-num"><span>3.3 · Paper 1</span><span class="status ready">Ready</span></div>
+  <div class="topic-body">
+    <h3>Estimation</h3>
+    <p>Fermi estimation, sensible approximations and sanity-checking answers. Short unit, easy marks if practised.</p>
+    <div class="topic-tags"><span>Fermi</span><span>Rounding</span><span>Approximation</span></div>
+    <span class="topic-go">Open topic →</span>
+  </div>
+</a>
+<a href="topics/critical-analysis.html" class="topic-card reveal">
+  <div class="topic-num"><span>3.4 · Paper 1</span><span class="status ready">Ready</span></div>
+  <div class="topic-body">
+    <h3>Critical Analysis of Data & Models</h3>
+    <p>Spotting misleading graphs, dodgy statistics and flawed models. The 'thinking' unit that ties everything together.</p>
+    <div class="topic-tags"><span>Misleading graphs</span><span>Spreadsheets</span><span>Models</span></div>
+    <span class="topic-go">Open topic →</span>
+  </div>
+</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="papers2">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Paper 2A · our option</p>
+      <h2>Paper 2A — Statistical Techniques</h2>
+      <p>Winchmore studies <strong>Paper 2A</strong>. These topics build directly on Analysis of Data from Paper 1 and are fully resourced below.</p>
+    </div>
+    <div class="callout green reveal">
+      <strong>This is the option you're sitting.</strong> Along with the four compulsory Paper 1 topics, Paper 2A is everything you need for the exam.
+    </div>
+    <div class="topic-grid" style="margin-top:1.5rem;">
+      <a href="topics/normal-distribution.html" class="topic-card reveal">
+  <div class="topic-num"><span>3.5 · Paper 2A</span><span class="status ready">Ready</span></div>
+  <div class="topic-body">
+    <h3>The Normal Distribution</h3>
+    <p>Bell curves, standardising and probabilities from the normal model. The signature topic of option 2A.</p>
+    <div class="topic-tags"><span>Bell curve</span><span>z-scores</span><span>Std normal</span></div>
+    <span class="topic-go">Open topic →</span>
+  </div>
+</a>
+<a href="topics/probability-estimation.html" class="topic-card reveal">
+  <div class="topic-num"><span>3.6 · Paper 2A</span><span class="status ready">Ready</span></div>
+  <div class="topic-body">
+    <h3>Probabilities & Estimation</h3>
+    <p>Sampling distributions, confidence intervals and estimating population values from samples.</p>
+    <div class="topic-tags"><span>Sampling</span><span>Confidence intervals</span><span>Estimation</span></div>
+    <span class="topic-go">Open topic →</span>
+  </div>
+</a>
+<a href="topics/correlation-regression.html" class="topic-card reveal">
+  <div class="topic-num"><span>3.7 · Paper 2A</span><span class="status ready">Ready</span></div>
+  <div class="topic-body">
+    <h3>Correlation & Regression</h3>
+    <p>Scatter graphs, PMCC, lines of best fit and using regression to predict. Data-handling powerhouse.</p>
+    <div class="topic-tags"><span>PMCC</span><span>Regression line</span><span>Prediction</span></div>
+    <span class="topic-go">Open topic →</span>
+  </div>
+</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="othertwo" style="background:var(--white);border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Paper 2B &amp; 2C · other routes</p>
+      <h2>The other Paper 2 options</h2>
+      <p>These are the alternative Paper 2 routes offered by AQA. Winchmore doesn't sit these, so they aren't resourced here yet — but here's what they cover for reference.</p>
+    </div>
+    <div class="callout reveal">
+      <strong>Coming soon.</strong> Resources for 2B and 2C aren't being built right now. If your class is taking one of these, speak to Mr Pohl.
+    </div>
+    <div class="topic-grid" style="margin-top:1.5rem;">
+      <div class="topic-card reveal is-soon">
+  <div class="topic-num"><span>3.8 · Paper 2B</span><span class="status soon">Coming soon</span></div>
+  <div class="topic-body">
+    <h3>Critical Path & Risk Analysis</h3>
+    <p>Activity networks, scheduling and project management maths. The signature topic of option 2B.</p>
+    <div class="topic-tags"><span>Networks</span><span>Gantt</span><span>Float</span><span>Risk</span></div>
+    <span class="topic-go" style="color:var(--muted);">In development</span>
+  </div>
+</div>
+<div class="topic-card reveal is-soon">
+  <div class="topic-num"><span>3.9 · Paper 2C</span><span class="status soon">Coming soon</span></div>
+  <div class="topic-body">
+    <h3>Expectation</h3>
+    <p>Expected value, decision-making under uncertainty and fair games. The signature topic of option 2C.</p>
+    <div class="topic-tags"><span>Expected value</span><span>Fair games</span><span>Decisions</span></div>
+    <span class="topic-go" style="color:var(--muted);">In development</span>
+  </div>
+</div>
+<div class="topic-card reveal is-soon">
+  <div class="topic-num"><span>3.10 · Paper 2C</span><span class="status soon">Coming soon</span></div>
+  <div class="topic-body">
+    <h3>Cost-Benefit Analysis</h3>
+    <p>Weighing costs against benefits to make and justify real financial decisions.</p>
+    <div class="topic-tags"><span>Cost-benefit</span><span>Decisions</span><span>Value</span></div>
+    <span class="topic-go" style="color:var(--muted);">In development</span>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="exams" style="background:var(--ink);color:#fff;">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker" style="color:var(--amber);">Practice makes permanent</p>
+      <h2 style="color:#fff;">Predicted papers &amp; exam practice</h2>
+      <p style="color:rgba(255,255,255,.75);">Mr Pohl has written full predicted 2026 papers for Paper 1 and Paper 2A — each with a complete mark scheme. Sit them under timed conditions to prepare.</p>
+    </div>
+    <div class="glance reveal" style="margin-bottom:2rem;">
+      <div class="glance-cell"><div class="num">2</div><div class="lbl">Paper 1 versions</div></div>
+      <div class="glance-cell"><div class="num">2</div><div class="lbl">Paper 2A versions</div></div>
+      <div class="glance-cell"><div class="num">5</div><div class="lbl">Mark schemes</div></div>
+      <div class="glance-cell"><div class="num">2026</div><div class="lbl">Prelim included</div></div>
+    </div>
+    <div style="text-align:center;">
+      <a href="papers.html" class="btn btn-primary" style="font-size:1rem;">Go to past papers →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resources" style="background:var(--white);border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Everything by resource type</p>
+      <h2>Resources</h2>
+      <p>Presentations, worksheets, predicted papers and textbook exercises for every topic, organised by resource type so you can find exactly what you need.</p>
+    </div>
+    <div class="topic-grid">
+      <a href="resources/presentations.html" class="topic-card reveal">
+        <div class="topic-num"><span>Resource</span><span class="status ready">Ready</span></div>
+        <div class="topic-body">
+          <h3>Presentations</h3>
+          <p>Lesson slide decks for every compulsory topic and Paper 2A, plus a full Paper 1 revision deck.</p>
+          <span class="topic-go">Browse presentations →</span>
+        </div>
+      </a>
+      <a href="resources/worksheets.html" class="topic-card reveal">
+        <div class="topic-num"><span>Resource</span><span class="status ready">Ready</span></div>
+        <div class="topic-body">
+          <h3>Worksheets</h3>
+          <p>Additional and shadow practice worksheets for extra topic-by-topic drilling.</p>
+          <span class="topic-go">Browse worksheets →</span>
+        </div>
+      </a>
+      <a href="papers.html" class="topic-card reveal">
+        <div class="topic-num"><span>Resource</span><span class="status ready">Ready</span></div>
+        <div class="topic-body">
+          <h3>Predicted Papers &amp; Mocks</h3>
+          <p>Full predicted 2026 papers with mark schemes for Paper 1 and Paper 2A.</p>
+          <span class="topic-go">Browse papers →</span>
+        </div>
+      </a>
+      <a href="resources/textbook-exercises.html" class="topic-card reveal">
+        <div class="topic-num"><span>Resource</span><span class="status ready">Ready</span></div>
+        <div class="topic-body">
+          <h3>Textbook Exercises</h3>
+          <p>End-of-topic tests covering every topic across Paper 1 and Paper 2A.</p>
+          <span class="topic-go">Browse exercises →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="getstarted">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Never done Core Maths before?</p>
+      <h2>Start here</h2>
+    </div>
+    <div class="papers">
+      <div class="paper-card reveal">
+        <span class="paper-tag">Step 1</span>
+        <h3>Nail the compulsory four</h3>
+        <div class="meta">Paper 1 foundation</div>
+        <p>Work through Analysis of Data → Personal Finance → Estimation → Critical Analysis in order. Each page has notes, videos and questions.</p>
+      </div>
+      <div class="paper-card reveal">
+        <span class="paper-tag">Step 2</span>
+        <h3>Learn your Paper 2 option</h3>
+        <div class="meta">One route only</div>
+        <p>Find out whether you're doing 2A, 2B or 2C and focus on those topics. Don't waste time on options you're not sitting.</p>
+      </div>
+      <div class="paper-card optional reveal">
+        <span class="paper-tag">Step 3</span>
+        <h3>Drill past papers</h3>
+        <div class="meta">Exam technique</div>
+        <p>From February onwards, sit full papers under timed conditions and mark them honestly with the mark schemes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="app.js"></script>
