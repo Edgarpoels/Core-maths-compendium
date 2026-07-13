@@ -46,11 +46,11 @@ MathJax = { tex: { inlineMath: [['$', '$']] } };
   </div>
 </header>
 <section class="section"><div class="container"><div class="sub-block reveal">
-  <div class="sub-head open">
+  <div class="sub-head">
     <h3>Point estimates</h3>
     <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.6a</span><span class="chev">▾</span></div>
   </div>
-  <div class="sub-body open" style="max-height:2200px;">
+  <div class="sub-body">
     <p>The mean of a random sample is called a <strong>point estimate</strong> for the mean of the whole population. A point estimate from a larger sample is generally more reliable than one from a small sample, since it's less affected by chance variation between individual items — it's not sensible to draw firm conclusions from a sample of size 1.</p>
   </div>
 </div>
@@ -59,7 +59,7 @@ MathJax = { tex: { inlineMath: [['$', '$']] } };
     <h3>The distribution of the sample mean</h3>
     <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.6b</span><span class="chev">▾</span></div>
   </div>
-  <div class="sub-body open" style="max-height:2200px;">
+  <div class="sub-body">
     <p>If you repeatedly take random samples from a population and calculate the mean of each, those sample means themselves form a distribution — one that clusters more tightly around the true population mean than individual values do. For samples of size $n$ from $N(\mu, \sigma^2)$, the sample mean $\bar{X}$ has distribution:
         $$\bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)$$
         The standard deviation of this distribution, $\dfrac{\sigma}{\sqrt{n}}$, is called the <strong>standard error of the mean</strong> — notice that it shrinks as the sample size $n$ grows.</p>
@@ -70,7 +70,7 @@ MathJax = { tex: { inlineMath: [['$', '$']] } };
     <h3>Confidence intervals</h3>
     <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.6c</span><span class="chev">▾</span></div>
   </div>
-  <div class="sub-body open" style="max-height:2200px;">
+  <div class="sub-body">
     <p>A point estimate alone doesn't say how reliable it is. A <strong>confidence interval</strong> gives a range of plausible values together with a stated level of confidence:
         $$\bar{x} \pm z \times \frac{\sigma}{\sqrt{n}}$$
         The most common values of $z$: <strong>90%</strong> confidence uses $z=1.64$, <strong>95%</strong> uses $z=1.96$, and <strong>99%</strong> uses $z=2.58$. A higher confidence level always gives a <em>wider</em> interval, and a larger sample size always gives a <em>narrower</em> one.</p>

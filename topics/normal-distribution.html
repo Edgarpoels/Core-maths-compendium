@@ -46,11 +46,11 @@ MathJax = { tex: { inlineMath: [['$', '$']] } };
   </div>
 </header>
 <section class="section"><div class="container"><div class="sub-block reveal">
-  <div class="sub-head open">
+  <div class="sub-head">
     <h3>Features of a normal distribution</h3>
     <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.5a</span><span class="chev">▾</span></div>
   </div>
-  <div class="sub-body open" style="max-height:2200px;">
+  <div class="sub-body">
     <p>A normal distribution is symmetrical and bell-shaped, written $N(\mu, \sigma^2)$ where $\mu$ is the mean and $\sigma$ is the standard deviation. As a rule of thumb: about 68\% of data lies within 1 standard deviation of the mean, about 95\% within 2 s.d., and virtually all of it within 3 s.d.</p>
         <p>Many real-world measurements — heights, reaction times, manufacturing errors — are well modelled by a normal distribution, even though it's always an approximation to the real data.</p>
   </div>
@@ -60,7 +60,7 @@ MathJax = { tex: { inlineMath: [['$', '$']] } };
     <h3>Standardising: z-values</h3>
     <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.5b</span><span class="chev">▾</span></div>
   </div>
-  <div class="sub-body open" style="max-height:2200px;">
+  <div class="sub-body">
     <p>To find a probability for <em>any</em> normal distribution, you first convert ("standardise") a value $x$ into a <strong>z-value</strong>, which tells you how many standard deviations $x$ is from the mean:
         $$z = \frac{x-\mu}{\sigma}$$
         This converts $N(\mu,\sigma^2)$ into the <strong>standard normal distribution</strong> $N(0,1)$, for which probabilities are tabulated as $\Phi(z) = P(Z<z)$. Because the curve is symmetrical, $\Phi(-z) = 1-\Phi(z)$.</p>
@@ -71,7 +71,7 @@ MathJax = { tex: { inlineMath: [['$', '$']] } };
     <h3>Finding probabilities and inverse problems</h3>
     <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.5c</span><span class="chev">▾</span></div>
   </div>
-  <div class="sub-body open" style="max-height:2200px;">
+  <div class="sub-body">
     <p>Use your calculator or statistical tables to look up $\Phi(z)$ for a given z-value, or to work the other way: given a probability, find the z-value (and hence the original value of $x$) using the inverse normal function. Always sketch the curve and shade the region you want — it makes it far easier to spot whether you need $\Phi(z)$, $1-\Phi(z)$, or a difference of two areas.</p>
   </div>
 </div>
