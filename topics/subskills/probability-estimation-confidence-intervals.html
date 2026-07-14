@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Confidence Intervals — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../about.html">About</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../probability-estimation.html">Probabilities & Estimation</a> / Confidence Intervals</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.6b &middot; Probabilities & Estimation &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Confidence Intervals</h1>
+    <p class="lede">Constructing and interpreting confidence intervals — a range of plausible values for a population parameter, based on sample data.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Understanding confidence intervals</h2>
+    <p>Click each step below to reveal it — work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; What a confidence interval is</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A confidence interval gives a <strong>range</strong> of values, calculated from sample data, that is likely to contain the true population value (e.g. the population mean). Rather than a single estimate, it acknowledges the uncertainty involved in estimating from a sample.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Constructing a confidence interval</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A confidence interval for the mean is calculated as: sample mean &plusmn; (a multiplier &times; standard error). For a 95% confidence interval, the multiplier is approximately 1.96 (from the standard normal distribution): $\bar{x}\pm 1.96\times\frac{\sigma}{\sqrt{n}}$.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; What &lsquo;confidence level&rsquo; actually means</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A &lsquo;95% confidence interval&rsquo; does <strong>not</strong> mean there's a 95% probability the true population mean lies in this particular interval. It means that if you repeated the sampling process many times and built a confidence interval each time, about 95% of those intervals would contain the true population mean.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Factors affecting the width of a confidence interval</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A wider confidence interval gives you more confidence it contains the true value, but is less precise. Increasing sample size <strong>narrows</strong> the interval (more precise); increasing the confidence level (e.g. 95%&rarr;99%) <strong>widens</strong> the interval (need a bigger range to be more sure).</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>A sample of 64 items has a mean of 50 and the population standard deviation is known to be 8. Construct a 95% confidence interval for the population mean.</strong></p><p>SE = 8&divide;&radic;64 = 8&divide;8 = 1<br/>95% CI = 50 &plusmn; 1.96&times;1 = 50 &plusmn; 1.96 = <strong>(48.04, 51.96)</strong>.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>A researcher takes a sample of 100 students' test scores, finding a sample mean of 62. The population standard deviation is known to be 10.<br/><br/>(a) Calculate the standard error of the mean.<br/>(b) Construct a 95% confidence interval for the population mean score, using a multiplier of 1.96.<br/>(c) Explain what this confidence interval tells us about the population mean. <strong>[5 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) SE = 10&divide;&radic;100 = 10&divide;10 = 1.<br/><br/>(b) 95% CI = 62 &plusmn; 1.96&times;1 = 62 &plusmn; 1.96 = <strong>(60.04, 63.96)</strong>.<br/><br/>(c) This means that if we repeated this sampling process many times, about 95% of the confidence intervals constructed this way would contain the true population mean score &mdash; we can be reasonably confident the true mean lies somewhere between about 60.04 and 63.96.</p></div>
+</div>
+
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Confidence Intervals worksheet</h2>
+    <p>Five short questions on confidence intervals. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>A sample of 49 has a mean of 30, and population standard deviation 7. Calculate the standard error.</li><li>Using your answer to Q1, construct a 95% confidence interval for the population mean (using multiplier 1.96).</li><li>Explain why a 99% confidence interval is wider than a 95% confidence interval, for the same sample data.</li><li>A confidence interval is calculated as (45.2, 54.8). State the sample mean and the margin of error (half the width of the interval).</li><li>Explain why it is incorrect to say &lsquo;there is a 95% probability that the true population mean lies within this particular confidence interval.&rsquo;</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>SE = 7&divide;&radic;49 = 7&divide;7 = <strong>1</strong>.</li><li>95% CI = 30 &plusmn; 1.96&times;1 = <strong>(28.04, 31.96)</strong>.</li><li>A 99% confidence interval needs to be wider to be more confident (99% vs 95%) that it captures the true population mean &mdash; a higher confidence level requires a larger range of plausible values, using a bigger multiplier than 1.96.</li><li>Sample mean = (45.2+54.8)&divide;2 = <strong>50</strong>. Margin of error = (54.8&minus;45.2)&divide;2 = <strong>4.8</strong>.</li><li>The true population mean is a fixed (though unknown) value &mdash; it either is or isn't in a specific interval, so there's no probability about it once the interval has been calculated. The 95% refers to the long-run proportion of such intervals (across repeated sampling) that would contain the true mean, not the probability for this one specific interval.</li></ol></div>
+</div>
+
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../probability-estimation.html" class="btn btn-dark">← Back to Probabilities & Estimation</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body></html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Outliers — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../about.html">About</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../analysis-of-data.html">Analysis of Data</a> / Outliers</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.1d &middot; Analysis of Data &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Outliers</h1>
+    <p class="lede">Spotting values that don't fit the pattern, testing them formally with the 1.5&times;IQR rule, and deciding what to do about them.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Understanding outliers</h2>
+    <p>Click each step below to reveal it — work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; What is an outlier?</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>An outlier is a value that lies unusually far from the rest of the data set &mdash; it doesn't fit the general pattern. Outliers matter because they can distort averages (especially the mean) and give a misleading impression of the data.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; The 1.5&times;IQR rule</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>Rather than relying on &lsquo;it looks odd&rsquo;, Core Maths uses a formal test: first find the IQR ($Q_3-Q_1$). A value is an outlier if it is more than $1.5\times IQR$ <strong>below</strong> $Q_1$, or more than $1.5\times IQR$ <strong>above</strong> $Q_3$. This gives two boundaries &mdash; anything outside them counts as an outlier.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Genuine values vs errors</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>Once you've identified an outlier, you need to think about <em>why</em> it's there. It might be a genuine, unusual result (worth keeping and investigating &mdash; it could be interesting!), or it might be a data entry/measurement error (worth removing or correcting). The context of the question should guide your decision &mdash; the exam will expect you to justify your choice.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; The effect of outliers on averages</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The mean uses every value, so a single outlier can pull it noticeably up or down. The median is based on <em>position</em>, not value, so it's barely affected by an extreme outlier. This is exactly why, when data contains outliers or is skewed, the median (not the mean) is usually the more appropriate average to quote.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>A sample of 10 employees' annual salaries (&pound;000s): 24, 26, 27, 28, 29, 30, 31, 32, 33, 95. Show that 95 is an outlier, and explain the effect it has on the mean.</strong></p><p>$Q_1$ &asymp; 26.5, $Q_3$ &asymp; 32.5 (average of the relevant middle pair in each half), so IQR &asymp; 6. Upper boundary = $Q_3+1.5\times IQR$ &asymp; 32.5+9 = 41.5. Since 95 &gt; 41.5, it <strong>is</strong> an outlier.<br/><br/>Mean including 95 = 355&divide;10 = 35.5; mean excluding 95 = 260&divide;9 &asymp; 28.9. The outlier pulls the mean up substantially (from about &pound;28,900 to &pound;35,500), giving a misleading impression that &lsquo;typical&rsquo; pay is much higher than it really is for most employees.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>A scientist records the reaction time (seconds) of 8 participants: 0.21, 0.23, 0.22, 0.24, 0.20, 0.23, 0.55, 0.22.<br/><br/>(a) Calculate $Q_1$ and $Q_3$, and use the $1.5\times IQR$ rule to determine whether 0.55 is an outlier.<br/>(b) The scientist discovers the participant with 0.55 seconds was distracted by a phone ringing during the test. Explain what the scientist should do with this data point, and why. <strong>[5 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) Ordered: 0.20, 0.21, 0.22, 0.22, 0.23, 0.23, 0.24, 0.55. n=8. Lower half (0.20,0.21,0.22,0.22) &rarr; $Q_1$=(0.21+0.22)&divide;2=0.215. Upper half (0.23,0.23,0.24,0.55) &rarr; $Q_3$=(0.23+0.24)&divide;2=0.235. IQR = 0.235&minus;0.215 = 0.02. Upper boundary = 0.235 + 1.5&times;0.02 = 0.265. Since 0.55 &gt; 0.265, it <strong>is</strong> an outlier.<br/><br/>(b) Since there's a known cause (the participant was distracted, not genuinely reacting slowly), this is a <strong>measurement error</strong> rather than a genuine result, so the scientist should remove/exclude this data point before calculating summary statistics, as it does not reflect the participant's true reaction time and would distort the results.</p></div>
+</div>
+
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Outliers worksheet</h2>
+    <p>Five short questions on outliers. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>A data set has $Q_1=40$, $Q_3=60$. Calculate the lower and upper outlier boundaries using the $1.5\times IQR$ rule.</li><li>Data: 5,6,6,7,7,8,8,9,22. Which value is likely to be an outlier, just by inspection?</li><li>Explain why the median is a better average than the mean to use when a data set contains an outlier.</li><li>A weather station records daily rainfall (mm) for a week: 2,0,1,3,0,2,45. The 45&nbsp;mm reading coincides with a recorded storm warning that day. Should this value be treated as an error or a genuine result? Justify your answer.</li><li>A company removes an outlier from its customer wait-time data before reporting the &lsquo;average wait time&rsquo; to investors, without explaining why. Give one reason this could be considered misleading.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>Lower boundary = $Q_1 - 1.5\times IQR$ = 40 &minus; 1.5&times;20 = 40&minus;30 = <strong>10</strong>. Upper boundary = $Q_3+1.5\times IQR$ = 60+30 = <strong>90</strong>.</li><li><strong>22</strong> &mdash; it is far larger than the rest of the data, which are clustered between 5 and 9.</li><li>The mean is calculated using every value, so a single extreme outlier pulls it strongly towards itself, giving a distorted picture of the &lsquo;typical&rsquo; value; the median only depends on the position of values, so an extreme value barely changes it, making it more representative of the data as a whole.</li><li>It should be treated as a <strong>genuine result</strong> &mdash; there's a documented cause (a storm), so it's a real, explainable extreme value rather than a measurement error; it shouldn't automatically be removed just because it's unusual.</li><li>Removing an outlier without explanation could artificially lower (or raise) the reported average, giving investors a misleadingly rosy (or otherwise inaccurate) picture of typical wait times &mdash; the removal should be transparent and justified, not just used to make the figures look better.</li></ol></div>
+</div>
+
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../analysis-of-data.html" class="btn btn-dark">← Back to Analysis of Data</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body></html>

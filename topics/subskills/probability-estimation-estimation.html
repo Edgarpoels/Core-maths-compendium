@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Point Estimation — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../about.html">About</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../probability-estimation.html">Probabilities & Estimation</a> / Point Estimation</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.6c &middot; Probabilities & Estimation &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Point Estimation</h1>
+    <p class="lede">Using sample data to produce a single best estimate (a point estimate) of an unknown population value.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Understanding point estimation</h2>
+    <p>Click each step below to reveal it — work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; What a point estimate is</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A point estimate is a single value, calculated from sample data, used as the best guess for an unknown population parameter. The sample mean, $\bar{x}$, is the standard point estimate for the population mean, $\mu$.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Estimating the population mean</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>If you take a random sample and calculate its mean, that sample mean is your point estimate for the population mean. The larger and more representative the sample, the more likely this estimate is to be close to the true population value.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Estimating the population standard deviation</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>You can also use sample data to estimate the population standard deviation. This uses a very similar calculation to the sample standard deviation, and in Core Maths you'll typically use your calculator's statistical functions to find this directly from raw or grouped sample data.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Point estimates vs interval estimates</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A point estimate gives a single &lsquo;best guess&rsquo; value but no sense of how reliable or uncertain that guess is. This is why point estimates are often paired with a <strong>confidence interval</strong>, showing the plausible range around the point estimate.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>A random sample of 10 packets of crisps has weights (g): 24.8, 25.1, 24.9, 25.3, 25.0, 24.7, 25.2, 25.0, 24.9, 25.1. Find a point estimate for the population mean weight.</strong></p><p>Sum = 250.0<br/>Point estimate for population mean = 250.0 &divide; 10 = <strong>25.0g</strong>.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>A quality controller takes a random sample of 8 light bulbs from a large production batch and records their lifespans (hours): 980, 1005, 995, 1010, 990, 1000, 1015, 985.<br/><br/>(a) Calculate a point estimate for the mean lifespan of the whole batch.<br/>(b) Explain one limitation of using this single sample of 8 bulbs to estimate the mean lifespan of the entire batch. <strong>[4 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) Sum = 980+1005+995+1010+990+1000+1015+985 = 7980. Point estimate = 7980&divide;8 = <strong>997.5 hours</strong>.<br/><br/>(b) A sample of only 8 bulbs is quite small, so it may not be fully representative of the whole batch &mdash; a different sample of 8 bulbs could easily give a noticeably different mean, meaning this point estimate carries a fair amount of uncertainty (a larger sample would generally give a more reliable estimate).</p></div>
+</div>
+
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Point Estimation worksheet</h2>
+    <p>Five short questions on point estimation. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>A sample of 5 values has a total of 62.5. Find the point estimate for the population mean.</li><li>Explain what is meant by a &lsquo;point estimate.&rsquo;</li><li>A sample of 20 measurements gives a sample mean of 14.6. State what this value is being used to estimate.</li><li>Explain one advantage of using an interval estimate (confidence interval) rather than just a point estimate.</li><li>A researcher takes two different random samples from the same population and calculates two different sample means: 45.2 and 46.8. Explain why these two point estimates are different, even though both come from the same population.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>62.5&divide;5 = <strong>12.5</strong>.</li><li>A point estimate is a single value, calculated from sample data, used as the best available estimate of an unknown population parameter (e.g. the sample mean used to estimate the population mean).</li><li>It is being used to estimate the <strong>population mean</strong>.</li><li>A confidence interval gives a sense of how reliable/uncertain the estimate is (a range of plausible values), whereas a point estimate alone gives no indication of how much the true value might differ from the estimate.</li><li>Because of <strong>sampling variability</strong> &mdash; each sample is a different, randomly selected subset of the population, so by chance the specific values included (and therefore the calculated mean) will differ slightly from sample to sample, even though both samples come from the same underlying population.</li></ol></div>
+</div>
+
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../probability-estimation.html" class="btn btn-dark">← Back to Probabilities & Estimation</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body></html>

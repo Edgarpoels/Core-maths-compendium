@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fermi Estimation — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../about.html">About</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../estimation.html">Estimation</a> / Fermi Estimation</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.3a &middot; Estimation &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Fermi Estimation</h1>
+    <p class="lede">Breaking a huge, seemingly impossible question into small, estimable steps — the core skill of Fermi estimation.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Understanding fermi estimation</h2>
+    <p>Click each step below to reveal it — work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; What Fermi estimation is</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A Fermi estimate is a rough calculation used to answer a question that seems impossible to know exactly (e.g. &lsquo;how many piano tuners are there in London?&rsquo;), by breaking it into smaller pieces that are much easier to estimate sensibly.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Breaking the problem into stages</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>Identify the separate facts/quantities you'd need to combine to reach an answer. For example, &lsquo;how many football supporters could Wembley stadium fit?&rsquo; could break into: capacity of the stadium &times; the proportion who are genuine supporters (rather than corporate guests).</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Making sensible assumptions</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>For each stage, choose a reasonable round-number estimate &mdash; you won't know exact figures, so state clear, sensible assumptions (e.g. &lsquo;assume the average UK adult drinks 2 cups of tea a day&rsquo;). The exam rewards <strong>clearly stated, realistic assumptions</strong>, not necessarily a &lsquo;correct&rsquo; final answer.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Combining and sanity-checking</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>Multiply/combine your estimates to reach a final answer, then sanity check it: does the order of magnitude feel reasonable? Fermi estimation is about getting <strong>roughly right</strong> (the right order of magnitude), not precisely right.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>Estimate how many bricks were used to build a two-storey house.</strong></p><p>Assume house footprint 10m &times; 8m, wall height 5m (two storeys). Perimeter &asymp; 2(10+8) = 36m, wall area &asymp; 36&times;5 = 180 m&sup2;. Subtract roughly 20% for windows/doors: 180&times;0.8 = 144 m&sup2;. Assume 1 brick covers about 0.015 m&sup2; of wall face.<br/>Bricks needed &asymp; 144 &divide; 0.015 &asymp; <strong>9,600 bricks</strong> (any sensible reasoning reaching a similar order of magnitude would be acceptable).</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>Estimate the number of textbooks in your school library. State clearly any assumptions you make and show your working. <strong>[4 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>Example approach: assume the library has about 40 shelving units, each with 6 shelves, each shelf holding about 25 books.<br/><br/>Estimate = 40 &times; 6 &times; 25 = <strong>6,000 books</strong>.<br/><br/>Any similarly structured estimate with clearly stated, reasonable assumptions and a correct combination of the assumed figures would gain full marks &mdash; the exact final number matters less than a sensible method and realistic assumptions.</p></div>
+</div>
+
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Fermi Estimation worksheet</h2>
+    <p>Five short questions on fermi estimation. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>List three sensible assumptions you would need to make to estimate the number of cars that pass a particular road junction in one day.</li><li>Estimate the number of seconds in an average human lifetime (assume a lifetime of 80 years). Show your method.</li><li>A Fermi estimate for &lsquo;how many taxis operate in a city&rsquo; might multiply population by the proportion who use taxis daily, divided by trips per taxi per day. Explain why breaking the problem into stages like this is more reliable than just guessing a single number.</li><li>Estimate the number of A4 sheets of paper it would take to cover the floor of your classroom. State your assumptions.</li><li>Explain what is meant by getting an estimate &lsquo;the right order of magnitude&rsquo;, using an example.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>Any three sensible, distinct assumptions, e.g.: (i) number of cars per minute during peak times, (ii) how many hours count as &lsquo;busy&rsquo; vs &lsquo;quiet&rsquo;, (iii) whether the pattern is similar on weekdays vs weekends.</li><li>80 years &times; 365 days &times; 24 hours &times; 60 minutes &times; 60 seconds &asymp; <strong>2.5 billion seconds</strong>. Accept any reasonable method reaching a similar order of magnitude.</li><li>Breaking the problem into stages means each individual assumption is easier to make sensibly and can be checked/adjusted separately, whereas guessing a single overall number has no clear reasoning behind it and is far more likely to be wildly wrong; breaking it down also makes errors easier to spot.</li><li>Example: classroom floor &asymp; 8m &times; 6m = 48 m&sup2;. One A4 sheet &asymp; 0.06 m&sup2;. Number of sheets &asymp; 48 &divide; 0.06 = <strong>800 sheets</strong>. Accept any similar reasonable method/assumptions.</li><li>Getting the &lsquo;right order of magnitude&rsquo; means your estimate is roughly the correct size/scale (e.g. thousands rather than millions), even if not exact &mdash; e.g. estimating a stadium holds &lsquo;about 50,000&rsquo; when it actually holds 60,000 is the right order of magnitude, but estimating &lsquo;500&rsquo; would not be.</li></ol></div>
+</div>
+
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../estimation.html" class="btn btn-dark">← Back to Estimation</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body></html>

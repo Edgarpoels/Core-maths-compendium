@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Regression Line — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../about.html">About</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../correlation-regression.html">Correlation & Regression</a> / The Regression Line</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.7b &middot; Correlation & Regression &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">The Regression Line</h1>
+    <p class="lede">Fitting a line of best fit to a scatter graph, and understanding what the gradient and intercept of a regression line mean.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Understanding the regression line</h2>
+    <p>Click each step below to reveal it — work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; What a regression line is</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A regression line (line of best fit) is a straight line drawn through a scatter graph that best represents the linear trend in the data. It's written in the form $y=a+bx$.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Finding the regression line</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>In the exam, you'll typically use your calculator's statistical mode to find the equation of the regression line directly from raw data (giving you the values of $a$ and $b$), rather than deriving it by hand. You need to be able to interpret and use the equation once found.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Interpreting the gradient and intercept</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The gradient, $b$, tells you how much $y$ changes for every 1 unit increase in $x$. The intercept, $a$, tells you the predicted value of $y$ when $x=0$ &mdash; though this may not always be meaningful in context (e.g. if $x=0$ is outside the sensible range of the data).</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; The regression line and the mean point</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The regression line always passes through the <strong>mean point</strong>, $(\bar{x},\bar{y})$ &mdash; the point representing the mean of the x-values and the mean of the y-values. This is a useful fact for checking or sketching a regression line by hand.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>A regression line for predicting exam score (y) from hours revised (x) is $y=42+5x$. Interpret the gradient and the intercept.</strong></p><p><strong>Gradient (5):</strong> for every extra hour of revision, exam score is predicted to increase by 5 marks.<br/><strong>Intercept (42):</strong> a student who revises for 0 hours is predicted to score 42 marks &mdash; though this may not be very meaningful if the data collected didn't actually include students with 0 hours of revision.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>The regression line for predicting monthly heating cost, y (&pound;), from average outdoor temperature, x (&deg;C), is $y=150-4x$.<br/><br/>(a) Interpret the gradient of this regression line in context.<br/>(b) Use the regression line to predict the heating cost when the average temperature is 8&deg;C. <strong>[4 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) The gradient (&minus;4) means that for every 1&deg;C increase in average outdoor temperature, the predicted monthly heating cost decreases by &pound;4 &mdash; sensible, since warmer weather needs less heating.<br/><br/>(b) y = 150 &minus; 4(8) = 150 &minus; 32 = <strong>&pound;118</strong>.</p></div>
+</div>
+
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>The Regression Line worksheet</h2>
+    <p>Five short questions on the regression line. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>A regression line is $y=20+3x$. State the gradient and the y-intercept.</li><li>Interpret the gradient of the regression line in Q1 in the context of x = number of items sold and y = total revenue (&pound;).</li><li>A regression line predicts delivery time, y (minutes), from distance, x (miles): $y=15+4x$. Use the regression line to predict the delivery time for a distance of 12 miles.</li><li>Explain what is meant by saying a regression line &lsquo;passes through the mean point.&rsquo;</li><li>A regression line has equation $y=8+0.5x$, based on data where x ranges from 10 to 50. Explain why using this line to predict y when x = 200 would be unreliable.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>Gradient = <strong>3</strong>, y-intercept = <strong>20</strong>.</li><li>For every extra item sold, revenue is predicted to increase by &pound;3.</li><li>y = 15 + 4(12) = 15+48 = <strong>63 minutes</strong>.</li><li>It means the regression line always passes exactly through the point $(\bar x,\bar y)$, where $\bar x$ is the mean of all the x-values and $\bar y$ is the mean of all the y-values in the data set.</li><li>Because x=200 is far outside the range of the original data (10 to 50) used to create the regression line &mdash; this is <strong>extrapolation</strong>, and there's no guarantee the same linear relationship continues to hold that far beyond the data.</li></ol></div>
+</div>
+
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../correlation-regression.html" class="btn btn-dark">← Back to Correlation & Regression</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body></html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Box Plots — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../about.html">About</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../analysis-of-data.html">Analysis of Data</a> / Box Plots</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.1c &middot; Analysis of Data &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Box Plots</h1>
+    <p class="lede">The five-number summary and how to build, read and compare box-and-whisker plots.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Understanding box plots</h2>
+    <p>Click each step below to reveal it — work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; The five-number summary</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A box plot is built from five values: the <strong>minimum</strong>, <strong>lower quartile</strong> ($Q_1$), <strong>median</strong>, <strong>upper quartile</strong> ($Q_3$), and <strong>maximum</strong>. Together these five numbers summarise the whole distribution of a data set in one compact picture.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Finding the quartiles</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>For a list of $n$ ordered values, the median splits the data in half; $Q_1$ is the median of the lower half, and $Q_3$ is the median of the upper half. For grouped data (from a cumulative frequency graph), read off the value at $\frac{n}{4}$ for $Q_1$, $\frac{n}{2}$ for the median, and $\frac{3n}{4}$ for $Q_3$ on the horizontal axis.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Drawing and reading a box plot</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The &lsquo;box&rsquo; runs from $Q_1$ to $Q_3$ (this is the interquartile range, IQR), with a line inside at the median. &lsquo;Whiskers&rsquo; extend out to the minimum and maximum &mdash; unless a value is flagged as an outlier (more than $1.5\times IQR$ beyond $Q_1$ or $Q_3$), in which case the whisker stops at the last non-outlier value and the outlier is marked separately with a cross or dot.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Comparing two box plots</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>When comparing box plots, always compare both <strong>position</strong> (medians &mdash; which data set is typically higher/lower) and <strong>spread</strong> (IQR/box width, and overall range &mdash; which is more consistent). Also comment on skew: if the median is off-centre in the box, or one whisker is much longer than the other, the data is skewed in that direction. Always write your comparison in context.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>Two box plots show the times (minutes) for Route A and Route B to complete a fun run. Route A: min 18, Q1 22, median 25, Q3 29, max 40. Route B: min 20, Q1 24, median 26, Q3 28, max 33. Compare the two routes.</strong></p><p>Route A has a slightly lower median (25 vs 26), so runners were typically a little faster on Route A. However, Route A has a much larger IQR (29&minus;22=7 vs 28&minus;24=4) and a wider overall range (40&minus;18=22 vs 33&minus;20=13), so times on Route A were far more variable/inconsistent than on Route B, which had a more consistent spread of times.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>A gym records the resting heart rate (bpm) of members before and after a 6-week fitness programme, shown as box plots.<br/><br/>Before: min 58, Q1 68, median 74, Q3 82, max 96.<br/>After: min 54, Q1 62, median 66, Q3 70, max 80.<br/><br/>Using the box plots, compare the heart rates before and after the programme. <strong>[4 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>The median heart rate is lower after the programme (66 bpm) than before (74 bpm), suggesting the programme has, on average, reduced members' resting heart rate.<br/><br/>The IQR is also smaller after the programme (70&minus;62 = 8) than before (82&minus;68 = 14), so heart rates became more consistent across members after the programme, as well as generally lower.</p></div>
+</div>
+
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Box Plots worksheet</h2>
+    <p>Five short questions on box plots. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>A data set has $Q_1=12$, median $=18$, $Q_3=25$. Calculate the IQR.</li><li>A box plot has $Q_1=30$, $Q_3=50$. Using the $1.5\times IQR$ rule, calculate the upper boundary above which a value would be considered an outlier.</li><li>Nine ordered values: 3,5,6,8,9,11,13,15,20. Find the median, $Q_1$ and $Q_3$.</li><li>Describe (in words) what a box plot looks like for a data set that is strongly skewed to the right (positively skewed) &mdash; describe the position of the median in the box and the relative whisker lengths.</li><li>Two box plots for exam marks: Class A median 60, IQR 10. Class B median 60, IQR 25. A student says &lsquo;the two classes performed identically since the medians are equal.&rsquo; Explain why this is not a complete comparison.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>IQR = $Q_3-Q_1$ = 25&minus;12 = <strong>13</strong>.</li><li>Upper boundary = $Q_3 + 1.5\times IQR$ = 50 + 1.5&times;(50&minus;30) = 50+30 = <strong>80</strong>.</li><li>n=9. Median = 5th value = <strong>9</strong>. Lower half (3,5,6,8) &rarr; $Q_1$ = (5+6)&divide;2 = <strong>5.5</strong>. Upper half (11,13,15,20) &rarr; $Q_3$ = (13+15)&divide;2 = <strong>14</strong>.</li><li>For a right-skewed data set, the median sits closer to $Q_1$ (nearer the left of the box), and the right-hand whisker (towards $Q_3$ and the maximum) is noticeably longer than the left-hand whisker, showing a &lsquo;tail&rsquo; of higher values.</li><li>The medians being equal only tells you the typical mark was the same in both classes; it says nothing about spread. Class B's much larger IQR (25 vs 10) means marks in Class B were far more variable &mdash; some students did much better or worse than the median &mdash; so the two classes' overall performance was not identical, just their typical (median) mark.</li></ol></div>
+</div>
+
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../analysis-of-data.html" class="btn btn-dark">← Back to Analysis of Data</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body></html>

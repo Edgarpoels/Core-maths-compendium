@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bell Curve — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../about.html">About</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../normal-distribution.html">The Normal Distribution</a> / Bell Curve</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.5a &middot; The Normal Distribution &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Bell Curve</h1>
+    <p class="lede">The shape and key properties of the normal distribution — the most important probability model in Core Maths.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Understanding bell curve</h2>
+    <p>Click each step below to reveal it — work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; What the normal distribution is</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The normal distribution is a symmetric, bell-shaped probability distribution that describes many real-world continuous variables (e.g. heights, exam scores, measurement errors). It's defined by two parameters: the mean, $\mu$, and the standard deviation, $\sigma$.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Key properties of the bell curve</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The curve is perfectly symmetric about the mean; mean = median = mode, all at the centre. Most values cluster near the mean, with fewer values further away in either direction (the &lsquo;tails&rsquo;). The total area under the curve equals 1 (representing 100% probability).</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; The 68-95-99.7 rule</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>For any normal distribution: about <strong>68%</strong> of values lie within 1 standard deviation of the mean; about <strong>95%</strong> lie within 2 standard deviations; about <strong>99.7%</strong> lie within 3 standard deviations. This gives a quick way to estimate probabilities without a calculator.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Recognising when to use a normal model</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The exam will often tell you a variable &lsquo;can be modelled by a normal distribution&rsquo; &mdash; this means you can use the mean, standard deviation and the properties above (or a calculator/table) to find probabilities. Not every data set is normal &mdash; very skewed data may not be well modelled this way.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>The heights of adult women in a population are normally distributed with mean 165 cm and standard deviation 7 cm. Use the 68-95-99.7 rule to estimate the percentage of women with height between 158 cm and 172 cm.</strong></p><p>158 cm = 165&minus;7 (1 s.d. below mean), 172 cm = 165+7 (1 s.d. above mean). This range is within 1 standard deviation of the mean either side &mdash; about <strong>68%</strong> of women have a height in this range.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>The time taken for a machine to complete a task is normally distributed with mean 40 seconds and standard deviation 3 seconds.<br/><br/>(a) Using the 68-95-99.7 rule, estimate the percentage of tasks completed in between 34 and 46 seconds.<br/>(b) Explain what feature of the bell curve means the mean, median and mode are all equal for this distribution. <strong>[4 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) 34 = 40&minus;2(3), 46 = 40+2(3), so this range is within 2 standard deviations of the mean &mdash; about <strong>95%</strong> of tasks are completed in this time range.<br/><br/>(b) The normal distribution is perfectly symmetric about its mean, so the middle value (median) and the most common value (mode) both coincide exactly with the centre of symmetry, which is the mean.</p></div>
+</div>
+
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Bell Curve worksheet</h2>
+    <p>Five short questions on bell curve. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>State two key properties of a normal distribution's bell-shaped curve.</li><li>A normal distribution has mean 50 and standard deviation 4. Using the 68-95-99.7 rule, estimate the percentage of values between 46 and 54.</li><li>Using the same distribution as Q2, estimate the percentage of values between 42 and 58.</li><li>Explain why the total area under a normal distribution curve must equal 1.</li><li>Give one example of a real-world variable that might reasonably be modelled by a normal distribution, and one that would NOT be well modelled this way, with a reason.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>Any two of: symmetric about the mean; bell-shaped; mean=median=mode; total area under the curve = 1; most values close to the mean, fewer in the tails.</li><li>46 = 50&minus;4, 54 = 50+4, within 1 s.d. &mdash; about <strong>68%</strong>.</li><li>42 = 50&minus;2(4), 58 = 50+2(4), within 2 s.d. &mdash; about <strong>95%</strong>.</li><li>The area under the curve represents total probability, and since one of all possible outcomes must occur, the total probability (area) must equal 1 (100%).</li><li>Example that fits well: adult heights (clusters around an average, roughly symmetric). Example that doesn't fit well: household income (typically strongly skewed, with a long tail of very high earners, not symmetric).</li></ol></div>
+</div>
+
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../normal-distribution.html" class="btn btn-dark">← Back to The Normal Distribution</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body></html>

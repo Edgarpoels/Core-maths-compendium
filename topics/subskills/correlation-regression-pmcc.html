@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PMCC — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../about.html">About</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../about.html">About</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../correlation-regression.html">Correlation & Regression</a> / PMCC</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.7a &middot; Correlation & Regression &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">PMCC</h1>
+    <p class="lede">Measuring the strength and direction of a linear relationship between two variables using the correlation coefficient, r.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Understanding pmcc</h2>
+    <p>Click each step below to reveal it — work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; What correlation measures</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>Correlation measures how closely two variables are linearly related &mdash; as one increases, does the other tend to increase (positive correlation), decrease (negative correlation), or show no clear pattern (no/zero correlation)? Scatter graphs are the visual way to spot correlation.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; The PMCC, r</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The product moment correlation coefficient (PMCC), $r$, gives a numerical value for the strength and direction of a <strong>linear</strong> relationship. It always lies between &minus;1 and +1. r = +1 is perfect positive correlation, r = &minus;1 is perfect negative correlation, and r = 0 means no linear correlation.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Interpreting the value of r</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>Values close to &plusmn;1 indicate strong correlation; values close to 0 indicate weak or no correlation. There's no single fixed cut-off for &lsquo;strong&rsquo; vs &lsquo;weak&rsquo; &mdash; context matters, but roughly: |r| &gt; 0.7 is often considered strong. You'll usually calculate r using your calculator's statistical mode from raw data.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Correlation is not causation</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A strong correlation between two variables does <strong>not</strong> prove that one causes the other. There could be a third factor influencing both (a confounding variable), or the relationship could be coincidental. Exam questions frequently test whether you can avoid claiming causation just because r is high.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>A scatter graph of hours studied vs exam score gives a PMCC of r = 0.82. Interpret this value.</strong></p><p>r = 0.82 is close to +1, indicating a <strong>strong positive linear correlation</strong> between hours studied and exam score &mdash; as hours studied increases, exam score tends to increase too, and the relationship is fairly consistent/strong (though not perfect, since r isn't exactly 1).</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>A researcher calculates the PMCC between ice cream sales and the number of drowning incidents at beaches over a year, finding r = 0.78.<br/><br/>(a) Describe the strength and direction of this correlation.<br/>(b) The researcher claims &lsquo;buying ice cream causes drowning.&rsquo; Explain why this conclusion is not justified by the correlation alone. <strong>[4 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) r = 0.78 indicates a fairly strong positive correlation between ice cream sales and drowning incidents.<br/><br/>(b) Correlation does not imply causation &mdash; there is likely a confounding (third) variable at play, such as hot weather, which independently increases both ice cream sales and swimming/drowning incidents. The correlation doesn't prove buying ice cream directly causes drowning.</p></div>
+</div>
+
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>PMCC worksheet</h2>
+    <p>Five short questions on pmcc. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>State the range of possible values for the PMCC, r.</li><li>A PMCC is calculated as r = &minus;0.91. Describe the strength and direction of this correlation.</li><li>A PMCC is calculated as r = 0.12. Describe what this value suggests about the linear relationship between the two variables.</li><li>Explain why a high correlation between two variables does not necessarily mean one causes the other.</li><li>Give an example of two variables that might show strong correlation without one causing the other, and suggest a possible confounding variable.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>&minus;1 &le; r &le; 1.</li><li>r = &minus;0.91 indicates a <strong>strong negative correlation</strong> &mdash; as one variable increases, the other tends to decrease, and the relationship is fairly consistent/strong.</li><li>r = 0.12 is close to 0, suggesting a <strong>very weak</strong> (almost negligible) linear relationship between the two variables.</li><li>Because correlation only measures association, not cause and effect; there could be a confounding third variable affecting both, or the relationship could be coincidental &mdash; correlation alone cannot establish that changes in one variable directly cause changes in the other.</li><li>Example: the number of people who drown and the amount of ice cream sold both correlate with hot weather (a confounding variable), rather than either one causing the other directly. (Any similarly sensible example is acceptable.)</li></ol></div>
+</div>
+
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../correlation-regression.html" class="btn btn-dark">← Back to Correlation & Regression</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body></html>
