@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Core Maths Compendium</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body><nav>
+  <a href="index.html" class="brand">
+    <span class="brand-mark">σ</span>
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#papers">Exam Structure</a>
+    <a href="index.html#topics">Topics</a>
+    <a href="papers.html">Past Papers</a>
+    <a href="resources/index.html">Resources</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="index.html#papers">Exam Structure</a>
+  <a href="index.html#topics">Topics</a>
+  <a href="papers.html">Past Papers</a>
+  <a href="resources/index.html">Resources</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+<div class="mobile-tabbar"><a href="index.html">Home</a>
+    <a href="index.html#papers">Exam Structure</a>
+    <a href="index.html#topics">Topics</a>
+    <a href="papers.html">Past Papers</a>
+    <a href="resources/index.html">Resources</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a></div>
+
+<div class="container">
+  <p class="crumb"><a href="index.html">Home</a> / Contact</p>
+</div>
+
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">Get in touch</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Contact</h1>
+    <p class="lede">Spotted an error, got a suggestion, or just want to say hello? Send a message using the form below — it comes straight through to me.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;">
+      <p class="kicker">Send a message</p>
+      <h2>Contact PCMC</h2>
+      <p style="margin-left:auto;margin-right:auto;">Fill in the form and I'll get back to you as soon as I can.</p>
+    </div>
+
+    <form id="contact-form" class="contact-form reveal">
+      <input type="hidden" name="access_key" value="87db521a-f8fe-491c-aae9-1d12d51ffeae"/>
+      <input type="checkbox" name="botcheck" class="hp-field" style="display:none;" tabindex="-1" autocomplete="off"/>
+      <input type="hidden" name="subject" value="New message from Core Maths Compendium contact form"/>
+      <input type="hidden" name="from_name" value="Contact@PCMC.co.uk"/>
+
+      <div class="field">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" required placeholder="Your name"/>
+      </div>
+      <div class="field">
+        <label for="cf-email">Your email</label>
+        <input type="email" id="cf-email" name="email" required placeholder="you@example.com"/>
+      </div>
+      <div class="field">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" required placeholder="What's on your mind?"></textarea>
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+        <p id="contact-status" class="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <div style="text-align:center;">
+      <span class="contact-badge">✉ Contact@PCMC.co.uk</span>
+    </div>
+
+    <div style="margin-top:3rem;text-align:center;">
+      <a href="index.html" class="btn btn-dark">← Back to home</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="fnote">
+      <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+      A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+      Built for Winchmore School by Mr Pohl.
+    </div>
+    <div class="mono-tag">
+      Not affiliated with AQA · Spec 1350<br/>
+      Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+    </div>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body></html>
