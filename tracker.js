@@ -2,7 +2,8 @@
    Everything runs client-side: the uploaded workbook is parsed with SheetJS in the
    browser and the PDF report is built with jsPDF. No file is ever sent anywhere.
    The workbook itself carries no logic at all — it's a plain fill-in-the-blanks
-   grid. All the scoring, banding and topic mapping is defined in tracker-data.js
+   grid (plus one same-row reference so a name only has to be typed once). All the
+   scoring, banding, topic mapping and grade estimate are defined in tracker-data.js
    and applied here, at upload time. */
 
 (function () {
@@ -10,6 +11,7 @@
 
   var RAG = { green: "#1B998B", amber: "#F4A93F", red: "#c0392b", black: "#12233A" };
   var RAG_LABEL = { green: "Mastered", amber: "Partial", red: "Needs work", black: "Not seen" };
+  var TOP_N = 10;
 
   function band(raw) {
     if (raw === null || raw === undefined || raw === "") return "black";
@@ -24,16 +26,54 @@
     return v === null || v === undefined || isNaN(v) ? "—" : Math.round(v * 100) + "%";
   }
 
+  function fmtDate(v) {
+    if (!v) return "";
+    // Use UTC getters (not local-time getters/toLocaleDateString) so the date
+    // shown never drifts by a day depending on the browser's timezone, and nudge
+    // by 12h first since spreadsheet date serials sometimes round to a few hours
+    // either side of midnight after a save/recalculate round-trip.
+    if (v instanceof Date) {
+      var vv = new Date(v.getTime() + 12 * 60 * 60 * 1000);
+      var dd = vv.getUTCDate(), mm = vv.getUTCMonth() + 1, yy = vv.getUTCFullYear();
+      return (dd < 10 ? "0" : "") + dd + "/" + (mm < 10 ? "0" : "") + mm + "/" + yy;
+    }
+    if (typeof v === "number") {
+      var d = XLSX.SSF ? XLSX.SSF.parse_date_code(v) : null;
+      if (d) return (d.d < 10 ? "0" : "") + d.d + "/" + (d.m < 10 ? "0" : "") + d.m + "/" + d.y;
+    }
+    return String(v);
+  }
+
   // ---------- workbook parsing ----------
-  // Reads raw marks straight off each plain test sheet (no formulas or lookups
-  // involved) and works out every student's per-topic average itself, using the
-  // question -> subskill map in tracker-data.js.
+  // Reads raw marks straight off each plain test sheet (no scoring formulas or
+  // lookups involved beyond the one same-row name reference) and works out every
+  // student's per-topic average itself, using the question -> subskill map in
+  // tracker-data.js. Also reads the Class list sheet for form / date of birth.
 
   function parseWorkbook(wb) {
     var spec = window.TRACKER_SPEC || [];
     var subskillList = window.SUBSKILLS || [];
     var specByName = {};
     spec.forEach(function (s) { specByName[s.sheet] = s; });
+
+    var meta = {}; // name (lowercase) -> {form, dob}
+    var classListSheet = wb.SheetNames.filter(function (n) { return /class list/i.test(n); })[0];
+    if (classListSheet) {
+      var clGrid = XLSX.utils.sheet_to_json(wb.Sheets[classListSheet], { header: 1, raw: true, defval: "" });
+      var clHeaderIdx = -1;
+      for (var hi = 0; hi < clGrid.length; hi++) {
+        if (String(clGrid[hi][0]).trim() === "Pupil name") { clHeaderIdx = hi; break; }
+      }
+      if (clHeaderIdx !== -1) {
+        for (var cr = clHeaderIdx + 1; cr < clGrid.length; cr++) {
+          var crow = clGrid[cr];
+          if (!crow) continue;
+          var cname = String(crow[0] || "").trim();
+          if (!cname) continue;
+          meta[cname.toLowerCase()] = { form: String(crow[1] || "").trim(), dob: fmtDate(crow[2]) };
+        }
+      }
+    }
 
     var studentMap = {};
     var matchedAnySheet = false;
@@ -85,7 +125,8 @@
         if (arr && arr.length) value = arr.reduce(function (a, b) { return a + b; }, 0) / arr.length;
         return { code: sc.code, desc: sc.desc, value: value, band: band(value === null ? "" : value) };
       });
-      return { name: s.name, group: "", id: "", topics: topics };
+      var m = meta[key] || { form: "", dob: "" };
+      return { name: s.name, form: m.form, dob: m.dob, topics: topics };
     });
 
     if (!students.length) {
@@ -110,6 +151,21 @@
     return { counts: counts, best: best, worst: worst, total: topics.length };
   }
 
+  function overallAverage(topics) {
+    var vals = topics.filter(function (t) { return t.value !== null; }).map(function (t) { return t.value; });
+    if (!vals.length) return null;
+    return vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+  }
+
+  function predictedGrade(overall) {
+    var bounds = (window.GRADE_BOUNDARIES || []).slice().sort(function (a, b) { return b.minPct - a.minPct; });
+    if (overall === null || !bounds.length) return null;
+    for (var i = 0; i < bounds.length; i++) {
+      if (overall >= bounds[i].minPct) return bounds[i].grade;
+    }
+    return bounds[bounds.length - 1].grade;
+  }
+
   function classTopicAverages(subskillCols, students) {
     return subskillCols.map(function (sc) {
       var vals = [];
@@ -120,6 +176,17 @@
       var avg = vals.length ? vals.reduce(function (a, b) { return a + b; }, 0) / vals.length : null;
       return { code: sc.code, desc: sc.desc, value: avg, band: band(avg === null ? "" : avg), n: vals.length };
     });
+  }
+
+  // top N topics for a given band, sorted so the most useful ones surface first:
+  // green/amber highest-scoring first, red lowest-scoring (most urgent) first,
+  // black (never seen) in spec order.
+  function topBoxes(topics, bandKey) {
+    var items = topics.filter(function (t) { return t.band === bandKey; });
+    if (bandKey === "red") items.sort(function (a, b) { return a.value - b.value; });
+    else if (bandKey === "black") { /* keep natural order */ }
+    else items.sort(function (a, b) { return b.value - a.value; });
+    return { shown: items.slice(0, TOP_N), more: Math.max(0, items.length - TOP_N), total: items.length };
   }
 
   // ---------- donut drawing (canvas) ----------
@@ -152,13 +219,13 @@
     ctx.beginPath(); ctx.arc(cx, cy, rInner, 0, Math.PI * 2); ctx.fill();
     ctx.globalCompositeOperation = "source-over";
     ctx.fillStyle = "#12233A";
-    ctx.font = "700 15px Inter, sans-serif";
+    ctx.font = "700 20px Inter, sans-serif";
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
     var seenPct = total ? Math.round(((total - counts.black) / total) * 100) : 0;
-    ctx.fillText(seenPct + "%", cx, cy - 6);
-    ctx.font = "600 9px 'Space Mono', monospace";
+    ctx.fillText(seenPct + "%", cx, cy - 7);
+    ctx.font = "600 10px 'Space Mono', monospace";
     ctx.fillStyle = "#63748A";
-    ctx.fillText("SEEN", cx, cy + 11);
+    ctx.fillText("SEEN", cx, cy + 14);
   }
 
   // ---------- DOM rendering ----------
@@ -172,86 +239,138 @@
     }).join("") + "</div>";
   }
 
-  function topicListHTML(label, band, topics) {
-    var list = topics.filter(function (t) { return t.band === band; });
-    if (!list.length) return "";
-    return '<div class="topic-list"><h4 style="color:' + RAG[band] + '">' + label + " (" + list.length + ")</h4><ul>" +
-      list.map(function (t) { return "<li><strong>" + t.code + "</strong> " + (t.desc || "") + (t.value !== null ? " — " + pct(t.value) : "") + "</li>"; }).join("") +
-      "</ul></div>";
+  function boxPanelHTML(label, bandKey, topics) {
+    var r = topBoxes(topics, bandKey);
+    return (
+      '<div class="box-panel box-panel-' + bandKey + '">' +
+        '<h4>' + label + " <span>" + r.total + "</span></h4>" +
+        '<div class="chip-grid">' +
+          (r.shown.length ? r.shown.map(function (t) {
+            return '<div class="topic-chip"><span class="chip-code">' + t.code + '</span><span class="chip-desc">' + (t.desc || "") + '</span>' +
+              (t.value !== null ? '<span class="chip-pct">' + pct(t.value) + '</span>' : "") + '</div>';
+          }).join("") : '<p class="chip-empty">None yet</p>') +
+        "</div>" +
+        (r.more ? '<p class="chip-more">+' + r.more + " more not shown</p>" : "") +
+      "</div>"
+    );
+  }
+
+  function gradeExplainer() {
+    return ("Estimated by comparing the average score across every topic assessed so far to AQA's most recently " +
+            "published grade boundaries for this qualification (1350A, June 2023 series: A 82%, B 72%, C 63%, D 53%, " +
+            "E 44% of 120 total marks). Boundaries move slightly every year, so treat this as an indicative estimate, not an official prediction.");
   }
 
   function renderStudentCard(student, index) {
     var s = summariseTopics(student.topics);
+    var overall = overallAverage(student.topics);
+    var grade = predictedGrade(overall);
     var el = document.createElement("div");
-    el.className = "student-card";
+    el.className = "report-card";
     el.innerHTML =
-      '<div class="student-card-head">' +
+      '<div class="report-card-main">' +
         "<h3>" + (student.name || "(unnamed)") + "</h3>" +
-      "</div>" +
-      '<div class="student-card-body">' +
-        '<canvas class="donut" width="150" height="150" data-role="donut" data-idx="' + index + '"></canvas>' +
-        "<div>" + legendHTML(s.counts, s.total) +
-          '<p class="best-worst">' +
-            (s.best ? "<strong>Strongest:</strong> " + s.best.code + " " + (s.best.desc || "") + " (" + pct(s.best.value) + ")<br/>" : "") +
-            (s.worst ? "<strong>Weakest:</strong> " + s.worst.code + " " + (s.worst.desc || "") + " (" + pct(s.worst.value) + ")" : "") +
-          "</p>" +
+        '<div class="chip-grid-wrap">' +
+          boxPanelHTML("Mastered", "green", student.topics) +
+          boxPanelHTML("Partial understanding", "amber", student.topics) +
+          boxPanelHTML("Needs work", "red", student.topics) +
+          boxPanelHTML("Not yet seen", "black", student.topics) +
         "</div>" +
       "</div>" +
-      topicListHTML("Green — mastered", "green", student.topics) +
-      topicListHTML("Amber — partial understanding", "amber", student.topics) +
-      topicListHTML("Red — needs work", "red", student.topics);
+      '<div class="report-card-side">' +
+        '<canvas class="donut" width="170" height="170" data-role="donut" data-idx="' + index + '"></canvas>' +
+        legendHTML(s.counts, s.total) +
+        '<div class="details-panel">' +
+          (student.form ? "<div><strong>Form</strong> " + student.form + "</div>" : "") +
+          (student.dob ? "<div><strong>Date of birth</strong> " + student.dob + "</div>" : "") +
+        "</div>" +
+        '<div class="grade-badge-wrap">' +
+          '<div class="grade-badge">' + (grade || "—") + "</div>" +
+          '<div class="grade-label">Predicted grade' + (overall !== null ? " (avg " + pct(overall) + ")" : "") + "</div>" +
+          '<p class="grade-explain">' + gradeExplainer() + "</p>" +
+        "</div>" +
+        '<div class="best-worst-callout">' +
+          (s.best ? '<div class="bw-row bw-best"><strong>Strongest</strong>' + s.best.code + " " + (s.best.desc || "") + " — " + pct(s.best.value) + "</div>" : "") +
+          (s.worst ? '<div class="bw-row bw-worst"><strong>Weakest</strong>' + s.worst.code + " " + (s.worst.desc || "") + " — " + pct(s.worst.value) + "</div>" : "") +
+        "</div>" +
+      "</div>";
     return el;
   }
 
   function renderClassSummary(subskillCols, students) {
     var averages = classTopicAverages(subskillCols, students);
     var s = summariseTopics(averages);
-    var attempted = averages.filter(function (a) { return a.value !== null; });
-    var best = attempted.length ? attempted.reduce(function (a, b) { return b.value > a.value ? b : a; }) : null;
-    var worst = attempted.length ? attempted.reduce(function (a, b) { return b.value < a.value ? b : a; }) : null;
+    var grades = { A: 0, B: 0, C: 0, D: 0, E: 0, U: 0, "—": 0 };
+    students.forEach(function (st) {
+      var g = predictedGrade(overallAverage(st.topics)) || "—";
+      grades[g] = (grades[g] || 0) + 1;
+    });
 
     var wrap = document.createElement("div");
+    wrap.className = "report-card";
     wrap.innerHTML =
-      '<div class="student-card-body">' +
-        '<canvas class="donut" width="170" height="170" data-role="class-donut"></canvas>' +
-        "<div>" + legendHTML(s.counts, s.total) +
-          '<p class="best-worst">' +
-            "<strong>" + students.length + "</strong> student" + (students.length === 1 ? "" : "s") + " in this upload.<br/>" +
-            (best ? "<strong>Strongest topic class-wide:</strong> " + best.code + " " + (best.desc || "") + " (" + pct(best.value) + " average)<br/>" : "") +
-            (worst ? "<strong>Weakest topic class-wide:</strong> " + worst.code + " " + (worst.desc || "") + " (" + pct(worst.value) + " average)" : "") +
-          "</p>" +
+      '<div class="report-card-main">' +
+        '<div class="chip-grid-wrap">' +
+          boxPanelHTML("Class has mastered", "green", averages) +
+          boxPanelHTML("Class — partial understanding", "amber", averages) +
+          boxPanelHTML("Class needs work", "red", averages) +
+          boxPanelHTML("Not yet seen by the class", "black", averages) +
         "</div>" +
       "</div>" +
-      topicListHTML("Green — class has mastered", "green", averages) +
-      topicListHTML("Amber — class has partial understanding", "amber", averages) +
-      topicListHTML("Red — class needs work", "red", averages) +
-      topicListHTML("Not yet seen by the class", "black", averages);
-    return { el: wrap, counts: s.counts, total: s.total, averages: averages, best: best, worst: worst };
+      '<div class="report-card-side">' +
+        '<canvas class="donut" width="170" height="170" data-role="class-donut"></canvas>' +
+        legendHTML(s.counts, s.total) +
+        '<div class="details-panel"><div><strong>' + students.length + "</strong> student" + (students.length === 1 ? "" : "s") + " in this upload</div></div>" +
+        '<div class="grade-badge-wrap">' +
+          '<div class="grade-label">Predicted grade spread</div>' +
+          '<div class="grade-dist">' + ["A", "B", "C", "D", "E", "U", "—"].map(function (g) {
+            return grades[g] ? '<span class="grade-pill">' + g + ": " + grades[g] + "</span>" : "";
+          }).join("") + "</div>" +
+          '<p class="grade-explain">' + gradeExplainer() + "</p>" +
+        "</div>" +
+      "</div>";
+    return { el: wrap, counts: s.counts, total: s.total, averages: averages };
   }
 
-  // ---------- PDF generation ----------
+  // ---------- PDF generation (A4 landscape, one full page per student) ----------
 
-  function buildPDF(subskillCols, students, classDonutDataUrl, studentDonutDataUrls, classInfo) {
+  function buildPDF(students, classDonutDataUrl, studentDonutDataUrls, classInfo) {
     var jsPDFCtor = window.jspdf.jsPDF;
-    var doc = new jsPDFCtor({ unit: "pt", format: "a4" });
+    var doc = new jsPDFCtor({ unit: "pt", format: "a4", orientation: "landscape" });
     var pageW = doc.internal.pageSize.getWidth();
     var pageH = doc.internal.pageSize.getHeight();
-    var margin = 42;
+    var margin = 36;
+    var sideW = 220;
+    var mainX = margin, mainW = pageW - margin * 2 - sideW - 24;
+    var sideX = pageW - margin - sideW;
 
-    function heading(text, y) {
-      doc.setFont("helvetica", "bold"); doc.setFontSize(18); doc.setTextColor(18, 35, 58);
-      doc.text(text, margin, y);
-      return y + 22;
-    }
-    function sub(text, y, size, color) {
-      doc.setFont("helvetica", "normal"); doc.setFontSize(size || 10.5);
-      doc.setTextColor.apply(doc, color || [99, 116, 138]);
-      doc.text(text, margin, y);
-      return y;
+    function hexToRgb(hex) {
+      var m = hex.replace("#", "");
+      return [parseInt(m.substr(0, 2), 16), parseInt(m.substr(2, 2), 16), parseInt(m.substr(4, 2), 16)];
     }
     function footer() {
       doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(150, 158, 170);
-      doc.text("Core Maths Compendium — Course Tracker report · generated locally in your browser", margin, pageH - 20);
+      doc.text("Core Maths Compendium — Course Tracker report · generated locally in your browser", margin, pageH - 16);
+    }
+    // small brand tag, top-right of every page: a green mark + "Mr Pohl's Core Maths Compendium"
+    function pageHeader() {
+      doc.setFont("helvetica", "bold"); doc.setFontSize(9);
+      var label = "MR POHL'S CORE MATHS COMPENDIUM";
+      var textW = doc.getStringUnitWidth(label) * 9 / doc.internal.scaleFactor;
+      var markSize = 16, gap = 8;
+      var totalW = markSize + gap + textW;
+      var startX = pageW - margin - totalW;
+      var markRgb = hexToRgb(RAG.green);
+      doc.setFillColor(markRgb[0], markRgb[1], markRgb[2]);
+      doc.roundedRect(startX, margin - 14, markSize, markSize, 4, 4, "F");
+      doc.setFont("helvetica", "bold"); doc.setFontSize(10); doc.setTextColor(255, 255, 255);
+      doc.text("σ", startX + markSize / 2, margin - 14 + markSize / 2 + 3.2, { align: "center" });
+      doc.setFont("helvetica", "bold"); doc.setFontSize(9); doc.setTextColor(18, 35, 58);
+      doc.text(label, startX + markSize + gap, margin - 14 + markSize / 2 + 3);
+    }
+    function roundRect(x, y, w, h, r, rgb) {
+      doc.setFillColor(rgb[0], rgb[1], rgb[2]);
+      doc.roundedRect(x, y, w, h, r, r, "F");
     }
     function legendBlock(x, y, counts, total) {
       var order = [["green", "Mastered"], ["amber", "Partial"], ["red", "Needs work"], ["black", "Not seen"]];
@@ -260,82 +379,182 @@
         var n = counts[key], p = total ? Math.round((n / total) * 100) : 0;
         var rgb = hexToRgb(RAG[key]);
         doc.setFillColor(rgb[0], rgb[1], rgb[2]);
-        doc.rect(x, y - 8, 10, 10, "F");
-        doc.setFont("helvetica", "normal"); doc.setFontSize(9.5); doc.setTextColor(31, 42, 55);
-        doc.text(label + " " + n + " (" + p + "%)", x + 15, y);
-        y += 16;
+        doc.rect(x, y - 8, 9, 9, "F");
+        doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(31, 42, 55);
+        doc.text(label + " " + n + " (" + p + "%)", x + 13, y);
+        y += 14;
       });
       return y;
     }
-    function topicLines(x, y, maxW, label, band, topics, color) {
-      var list = topics.filter(function (t) { return t.band === band; });
-      if (!list.length) return y;
-      var rgb = hexToRgb(color);
-      doc.setFont("helvetica", "bold"); doc.setFontSize(10.5); doc.setTextColor(rgb[0], rgb[1], rgb[2]);
-      doc.text(label + " (" + list.length + ")", x, y);
-      y += 13;
-      doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(31, 42, 55);
-      list.forEach(function (t) {
-        var line = t.code + "  " + (t.desc || "") + (t.value !== null ? "  (" + pct(t.value) + ")" : "");
-        var wrapped = doc.splitTextToSize(line, maxW);
-        wrapped.forEach(function (wl) {
-          if (y > pageH - 60) { footer(); doc.addPage(); y = margin; }
-          doc.text(wl, x, y); y += 12;
-        });
+
+    // one panel of up to 10 chip boxes for a RAG band, returns bottom y used
+    function chipPanel(x, y, w, label, bandKey, topics) {
+      var r = topBoxes(topics, bandKey);
+      var rgb = hexToRgb(RAG[bandKey]);
+      doc.setFont("helvetica", "bold"); doc.setFontSize(10.5);
+      doc.setTextColor(rgb[0], rgb[1], rgb[2]);
+      doc.text(label + " (" + r.total + ")", x, y);
+      y += 12;
+      doc.setDrawColor(228, 233, 239);
+      doc.setLineWidth(0.6);
+      doc.line(x, y - 4, x + w, y - 4);
+      y += 6;
+      if (!r.shown.length) {
+        doc.setFont("helvetica", "normal"); doc.setFontSize(8.5); doc.setTextColor(150, 158, 170);
+        doc.text("None yet", x, y); return y + 14;
+      }
+      var boxH = 30, gap = 6, perRow = 2, boxW = (w - gap) / perRow;
+      r.shown.forEach(function (t, i) {
+        var col = i % perRow, row = Math.floor(i / perRow);
+        var bx = x + col * (boxW + gap), by = y + row * (boxH + gap);
+        doc.setFillColor(250, 250, 248);
+        doc.setDrawColor(228, 233, 239);
+        doc.roundedRect(bx, by, boxW, boxH, 4, 4, "FD");
+        doc.setDrawColor.apply(doc, [rgb[0], rgb[1], rgb[2]]);
+        doc.setFillColor(rgb[0], rgb[1], rgb[2]);
+        doc.rect(bx, by, 3, boxH, "F");
+        doc.setFont("helvetica", "bold"); doc.setFontSize(8.5); doc.setTextColor(18, 35, 58);
+        doc.text(t.code + (t.value !== null ? "  " + pct(t.value) : ""), bx + 8, by + 12);
+        doc.setFont("helvetica", "normal"); doc.setFontSize(7.5); doc.setTextColor(99, 116, 138);
+        var desc = doc.splitTextToSize(t.desc || "", boxW - 12)[0] || "";
+        doc.text(desc, bx + 8, by + 23);
       });
-      return y + 8;
+      var rows = Math.ceil(r.shown.length / perRow);
+      y += rows * (boxH + gap);
+      if (r.more) {
+        doc.setFont("helvetica", "italic"); doc.setFontSize(8); doc.setTextColor(150, 158, 170);
+        doc.text("+" + r.more + " more not shown", x, y + 4);
+        y += 14;
+      }
+      return y + 10;
     }
 
-    // ---- Cover / class summary page ----
-    var y = margin + 10;
-    y = heading("AQA Core Maths — Class Progress Report", y);
-    y = sub(new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }), y + 14);
-    y += 26;
-    doc.addImage(classDonutDataUrl, "PNG", margin, y, 150, 150);
-    var legY = legendBlock(margin + 175, y + 34, classInfo.counts, classInfo.total);
-    doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.setTextColor(31, 42, 55);
-    var infoX = margin + 175, infoY = legY + 10;
-    doc.text(students.length + " student" + (students.length === 1 ? "" : "s") + " in this report", infoX, infoY); infoY += 16;
-    if (classInfo.best) { doc.text("Strongest topic: " + classInfo.best.code + " (" + pct(classInfo.best.value) + " avg)", infoX, infoY); infoY += 14; }
-    if (classInfo.worst) { doc.text("Weakest topic: " + classInfo.worst.code + " (" + pct(classInfo.worst.value) + " avg)", infoX, infoY); infoY += 14; }
-    y += 175;
+    function drawSidePanel(x, y, w, donutUrl, counts, total, detailsLines, gradeInfo, bestWorst) {
+      doc.addImage(donutUrl, "PNG", x + (w - 150) / 2, y, 150, 150);
+      y += 168;
+      y = legendBlock(x, y, counts, total) + 10;
 
-    var colW = (pageW - margin * 2 - 24) / 2;
-    var yLeft = topicLines(margin, y, colW, "Green — class has mastered", "green", classInfo.averages, RAG.green);
-    var yRight = topicLines(margin + colW + 24, y, colW, "Amber — partial understanding", "amber", classInfo.averages, RAG.amber);
-    y = Math.max(yLeft, yRight);
-    yLeft = topicLines(margin, y, colW, "Red — needs work", "red", classInfo.averages, RAG.red);
-    yRight = topicLines(margin + colW + 24, y, colW, "Not yet seen", "black", classInfo.averages, RAG.black);
+      if (detailsLines.length) {
+        doc.setDrawColor(228, 233, 239); doc.setLineWidth(0.6); doc.line(x, y, x + w, y); y += 16;
+        detailsLines.forEach(function (line) {
+          doc.setFont("helvetica", "normal"); doc.setFontSize(9.5); doc.setTextColor(31, 42, 55);
+          doc.text(line, x, y); y += 15;
+        });
+        y += 4;
+      }
+
+      doc.setDrawColor(228, 233, 239); doc.setLineWidth(0.6); doc.line(x, y, x + w, y); y += 18;
+      if (gradeInfo.badge) {
+        doc.setFillColor(18, 35, 58);
+        doc.circle(x + 20, y + 6, 18, "F");
+        doc.setFont("helvetica", "bold"); doc.setFontSize(15); doc.setTextColor(255, 255, 255);
+        doc.text(String(gradeInfo.badge), x + 20, y + 11, { align: "center" });
+        doc.setFont("helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(18, 35, 58);
+        doc.text(gradeInfo.label, x + 46, y + 3);
+        doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(99, 116, 138);
+        var sub = doc.splitTextToSize(gradeInfo.sub || "", w - 46);
+        doc.text(sub, x + 46, y + 14);
+        y += 34;
+      } else {
+        doc.setFont("helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(18, 35, 58);
+        doc.text(gradeInfo.label, x, y); y += 14;
+        (gradeInfo.pills || []).forEach(function (line) {
+          doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(31, 42, 55);
+          doc.text(line, x, y); y += 13;
+        });
+        y += 4;
+      }
+      doc.setFont("helvetica", "italic"); doc.setFontSize(7);
+      doc.setTextColor(150, 158, 170);
+      var explainLines = doc.splitTextToSize(gradeExplainer(), w);
+      explainLines.forEach(function (l) { doc.text(l, x, y); y += 9; });
+      y += 8;
+
+      if (bestWorst) {
+        doc.setDrawColor(228, 233, 239); doc.setLineWidth(0.6); doc.line(x, y, x + w, y); y += 16;
+        if (bestWorst.best) {
+          var g = hexToRgb(RAG.green);
+          doc.setFillColor(g[0], g[1], g[2]); doc.rect(x, y - 9, 3, 24, "F");
+          doc.setFont("helvetica", "bold"); doc.setFontSize(8.5); doc.setTextColor(g[0], g[1], g[2]);
+          doc.text("STRONGEST", x + 8, y - 2);
+          doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(31, 42, 55);
+          doc.text(bestWorst.best.code + " " + (bestWorst.best.desc || "").slice(0, 40) + " — " + pct(bestWorst.best.value), x + 8, y + 10);
+          y += 26;
+        }
+        if (bestWorst.worst) {
+          var rd = hexToRgb(RAG.red);
+          doc.setFillColor(rd[0], rd[1], rd[2]); doc.rect(x, y - 9, 3, 24, "F");
+          doc.setFont("helvetica", "bold"); doc.setFontSize(8.5); doc.setTextColor(rd[0], rd[1], rd[2]);
+          doc.text("WEAKEST", x + 8, y - 2);
+          doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(31, 42, 55);
+          doc.text(bestWorst.worst.code + " " + (bestWorst.worst.desc || "").slice(0, 40) + " — " + pct(bestWorst.worst.value), x + 8, y + 10);
+          y += 26;
+        }
+      }
+      return y;
+    }
+
+    // ---- class summary page ----
+    pageHeader();
+    var y = margin + 6;
+    doc.setFont("helvetica", "bold"); doc.setFontSize(19); doc.setTextColor(18, 35, 58);
+    doc.text("AQA Core Maths — Class Progress Report", mainX, y);
+    doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.setTextColor(99, 116, 138);
+    doc.text(new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }), mainX, y + 16);
+    y += 40;
+
+    var grades = { A: 0, B: 0, C: 0, D: 0, E: 0, U: 0, "—": 0 };
+    students.forEach(function (st) {
+      var g = predictedGrade(overallAverage(st.topics)) || "—";
+      grades[g] = (grades[g] || 0) + 1;
+    });
+    var pills = ["A", "B", "C", "D", "E", "U", "—"].filter(function (g) { return grades[g]; })
+      .map(function (g) { return g + ": " + grades[g]; });
+
+    drawSidePanel(sideX, y, sideW, classDonutDataUrl, classInfo.counts, classInfo.total,
+      [students.length + " student" + (students.length === 1 ? "" : "s") + " in this report"],
+      { label: "Predicted grade spread", pills: pills },
+      { best: classInfo.best, worst: classInfo.worst });
+
+    var colW = (mainW - 20) / 2;
+    var y1 = chipPanel(mainX, y, colW, "Class has mastered", "green", classInfo.averages);
+    var y2 = chipPanel(mainX + colW + 20, y, colW, "Partial understanding", "amber", classInfo.averages);
+    var yy = Math.max(y1, y2);
+    var y3 = chipPanel(mainX, yy, colW, "Needs work", "red", classInfo.averages);
+    var y4 = chipPanel(mainX + colW + 20, yy, colW, "Not yet seen", "black", classInfo.averages);
     footer();
 
-    // ---- one page per student ----
+    // ---- one landscape page per student ----
     students.forEach(function (student, idx) {
-      doc.addPage();
+      doc.addPage("a4", "landscape");
+      pageHeader();
       var s = summariseTopics(student.topics);
-      var yy = margin + 10;
-      yy = heading(student.name || "(unnamed student)", yy);
-      yy += 20;
-      doc.addImage(studentDonutDataUrls[idx], "PNG", margin, yy, 140, 140);
-      var ly = legendBlock(margin + 165, yy + 26, s.counts, s.total);
-      doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.setTextColor(31, 42, 55);
-      var ix = margin + 165, iy = ly + 10;
-      if (s.best) { doc.text("Strongest: " + s.best.code + " " + doc.splitTextToSize(s.best.desc || "", 220)[0] + " (" + pct(s.best.value) + ")", ix, iy); iy += 14; }
-      if (s.worst) { doc.text("Weakest: " + s.worst.code + " " + doc.splitTextToSize(s.worst.desc || "", 220)[0] + " (" + pct(s.worst.value) + ")", ix, iy); iy += 14; }
-      yy += 160;
-      var cw = (pageW - margin * 2 - 24) / 2;
-      var l1 = topicLines(margin, yy, cw, "Green — mastered", "green", student.topics, RAG.green);
-      var l2 = topicLines(margin + cw + 24, yy, cw, "Amber — partial", "amber", student.topics, RAG.amber);
-      yy = Math.max(l1, l2);
-      topicLines(margin, yy, cw, "Red — needs work", "red", student.topics, RAG.red);
+      var overall = overallAverage(student.topics);
+      var grade = predictedGrade(overall);
+
+      var yy2 = margin + 6;
+      doc.setFont("helvetica", "bold"); doc.setFontSize(20); doc.setTextColor(18, 35, 58);
+      doc.text(student.name || "(unnamed student)", mainX, yy2);
+      yy2 += 30;
+
+      var detailLines = [];
+      if (student.form) detailLines.push("Form: " + student.form);
+      if (student.dob) detailLines.push("Date of birth: " + student.dob);
+
+      drawSidePanel(sideX, yy2, sideW, studentDonutDataUrls[idx], s.counts, s.total, detailLines,
+        { badge: grade || "—", label: "Predicted grade" + (overall !== null ? " (avg " + pct(overall) + ")" : "") },
+        { best: s.best, worst: s.worst });
+
+      var cw = (mainW - 20) / 2;
+      var l1 = chipPanel(mainX, yy2, cw, "Mastered", "green", student.topics);
+      var l2 = chipPanel(mainX + cw + 20, yy2, cw, "Partial understanding", "amber", student.topics);
+      var lm = Math.max(l1, l2);
+      var l3 = chipPanel(mainX, lm, cw, "Needs work", "red", student.topics);
+      var l4 = chipPanel(mainX + cw + 20, lm, cw, "Not yet seen", "black", student.topics);
       footer();
     });
 
     doc.save("Core Maths Class Progress Report.pdf");
-  }
-
-  function hexToRgb(hex) {
-    var m = hex.replace("#", "");
-    return [parseInt(m.substr(0, 2), 16), parseInt(m.substr(2, 2), 16), parseInt(m.substr(4, 2), 16)];
   }
 
   // ---------- wiring ----------
@@ -349,8 +568,6 @@
     var studentCards = document.getElementById("student-cards");
     var downloadBtn = document.getElementById("download-pdf");
     if (!dropzone) return;
-
-    var parsedData = null;
 
     dropzone.addEventListener("click", function () { fileInput.click(); });
     dropzone.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") fileInput.click(); });
@@ -378,8 +595,8 @@
       var reader = new FileReader();
       reader.onload = function (e) {
         try {
-          var wb = XLSX.read(new Uint8Array(e.target.result), { type: "array", cellFormula: false });
-          parsedData = parseWorkbook(wb);
+          var wb = XLSX.read(new Uint8Array(e.target.result), { type: "array", cellFormula: false, cellDates: true });
+          var parsedData = parseWorkbook(wb);
           renderPreview(parsedData);
           setStatus("Loaded " + parsedData.students.length + " student(s). Report ready below.", "ok");
         } catch (err) {
@@ -416,7 +633,7 @@
             var classDonutUrl = classDonut.toDataURL("image/png");
             var studentUrls = [];
             donutEls.forEach(function (c) { studentUrls.push(c.toDataURL("image/png")); });
-            buildPDF(data.subskillCols, data.students, classDonutUrl, studentUrls, classResult);
+            buildPDF(data.students, classDonutUrl, studentUrls, classResult);
             setStatus("PDF downloaded.", "ok");
           } catch (err) {
             setStatus("Couldn't build the PDF: " + err.message, "err");
