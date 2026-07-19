@@ -290,9 +290,7 @@ nav {
 
 /* ═══ TRACKER WALKTHROUGH ═══ */
 .walkthrough { display: flex; flex-direction: column; gap: 2.6rem; }
-.walk-step { display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; }
-.walk-step-text { display: flex; flex-direction: column; flex: 1 1 280px; }
-.walk-step .walk-shots { flex: 1 1 260px; max-width: 320px; }
+.walk-step { overflow: hidden; } /* clearfix so the step's border/spacing wraps the floated shots */
 .walk-num {
   font-family: 'Space Mono', monospace; font-weight: 700; font-size: .8rem; color: #fff;
   background: var(--green); width: 30px; height: 30px; border-radius: 50%;
@@ -300,30 +298,31 @@ nav {
 }
 .walk-step-text h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--ink); margin: 0 0 .5rem; }
 .walk-step-text p { color: var(--muted); font-size: .95rem; line-height: 1.55; margin: 0; }
-.walk-shots { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: flex-end; }
-.walk-shots a { flex: 1 1 130px; max-width: 150px; display: block; }
+.walk-shots {
+  float: right; width: 256px; margin: 0 0 1rem 1.5rem;
+  display: flex; gap: .6rem; flex-wrap: wrap; justify-content: flex-end;
+}
+.walk-shots a { display: block; }
 .walk-shots img {
-  width: 100%; height: auto; display: block; border: 1px solid var(--grid); border-radius: var(--radius);
+  display: block; width: 120px; max-width: 100%; height: auto;
+  border: 1px solid var(--grid); border-radius: var(--radius);
   box-shadow: var(--shadow); transition: transform .15s, box-shadow .15s;
 }
 .walk-shots a:hover img { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.walk-shots-caption { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-top: .4rem; text-align: center; }
+.walk-shots-caption { font-family: 'Space Mono', monospace; font-size: .58rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-top: .4rem; text-align: center; width: 120px; }
 .walk-upload-mock {
   border: 2px dashed var(--grid); border-radius: var(--radius); background: var(--paper);
-  padding: 1.6rem 1.1rem; text-align: center; max-width: 220px;
+  padding: 1.4rem 1rem; text-align: center; width: 200px; margin: 0 0 0 auto;
 }
 .walk-upload-mock .walk-upload-icon {
-  width: 34px; height: 34px; border-radius: 50%; background: var(--green); color: #fff;
+  width: 32px; height: 32px; border-radius: 50%; background: var(--green); color: #fff;
   font-size: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto .7rem;
 }
-.walk-upload-mock p { font-size: .82rem; }
-.walk-upload-mock .mono { font-size: .68rem; color: var(--muted); word-break: break-all; }
+.walk-upload-mock p { font-size: .78rem; }
+.walk-upload-mock .mono { font-size: .64rem; color: var(--muted); word-break: break-all; }
 @media (max-width: 760px) {
-  .walk-step { gap: 1.2rem; }
-  .walk-step-text { flex-basis: 100%; }
-  .walk-step .walk-shots { flex-basis: 100%; max-width: none; justify-content: center; }
-  .walk-shots a { flex: 0 1 42%; max-width: 160px; }
-  .walk-upload-mock { max-width: 220px; margin: 0 auto; }
+  .walk-shots { float: none; width: 100%; margin: 0 0 1rem; justify-content: center; }
+  .walk-upload-mock { margin: 0 auto; }
 }
 
 /* ═══ CONTACT FORM ═══ */
