@@ -1,6 +1,9 @@
 /* tracker.js — Core Maths Compendium course tracker tool.
    Everything runs client-side: the uploaded workbook is parsed with SheetJS in the
-   browser and the PDF report is built with jsPDF. No file is ever sent anywhere. */
+   browser and the PDF report is built with jsPDF. No file is ever sent anywhere.
+   The workbook itself carries no logic at all — it's a plain fill-in-the-blanks
+   grid. All the scoring, banding and topic mapping is defined in tracker-data.js
+   and applied here, at upload time. */
 
 (function () {
   "use strict";
@@ -22,53 +25,74 @@
   }
 
   // ---------- workbook parsing ----------
+  // Reads raw marks straight off each plain test sheet (no formulas or lookups
+  // involved) and works out every student's per-topic average itself, using the
+  // question -> subskill map in tracker-data.js.
 
   function parseWorkbook(wb) {
-    var sheetName = null;
-    for (var i = 0; i < wb.SheetNames.length; i++) {
-      if (/subskill progress/i.test(wb.SheetNames[i])) { sheetName = wb.SheetNames[i]; break; }
-    }
-    if (!sheetName) {
-      throw new Error('Could not find the "Student Subskill Progress" sheet in this file. Please upload the Core Maths Course Tracker workbook you downloaded from this page.');
-    }
-    var ws = wb.Sheets[sheetName];
-    var grid = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: "" });
+    var spec = window.TRACKER_SPEC || [];
+    var subskillList = window.SUBSKILLS || [];
+    var specByName = {};
+    spec.forEach(function (s) { specByName[s.sheet] = s; });
 
-    var headerRowIdx = -1;
-    for (var r = 0; r < grid.length; r++) {
-      if (String(grid[r][0]).trim() === "Student ID") { headerRowIdx = r; break; }
-    }
-    if (headerRowIdx === -1) throw new Error("This looks like a different workbook — the Student Subskill Progress header row couldn't be found.");
+    var studentMap = {};
+    var matchedAnySheet = false;
 
-    var header = grid[headerRowIdx];
-    var descRow = grid[headerRowIdx - 1] || [];
-    var subskillCols = [];
-    for (var c = 4; c < header.length; c++) {
-      var h = String(header[c] || "").trim();
-      if (h === "Overall %" || h === "Readiness" || h === "") continue;
-      subskillCols.push({ code: h, desc: String(descRow[c] || "").trim(), col: c });
+    wb.SheetNames.forEach(function (sheetName) {
+      var specEntry = specByName[sheetName];
+      if (!specEntry) return;
+      var ws = wb.Sheets[sheetName];
+      var grid = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: "" });
+
+      var headerRowIdx = -1;
+      for (var i = 0; i < grid.length; i++) {
+        if (String(grid[i][0]).trim() === "Pupil name") { headerRowIdx = i; break; }
+      }
+      if (headerRowIdx === -1) return;
+      matchedAnySheet = true;
+      var dataStart = headerRowIdx + 2; // row after "Pupil name" header is "Max marks" — skip it
+
+      for (var r = dataStart; r < grid.length; r++) {
+        var row = grid[r];
+        if (!row) continue;
+        var name = String(row[0] || "").trim();
+        if (!name) continue;
+        var key = name.toLowerCase();
+        if (!studentMap[key]) studentMap[key] = { name: name, subskills: {} };
+
+        specEntry.questions.forEach(function (q, qi) {
+          var raw = row[1 + qi];
+          if (raw === "" || raw === undefined || raw === null) return; // left blank — not attempted
+          var num = Number(raw);
+          if (isNaN(num) || !q.subskill) return;
+          var frac = q.maxMarks ? num / q.maxMarks : 0;
+          frac = Math.max(0, Math.min(1, frac));
+          if (!studentMap[key].subskills[q.subskill]) studentMap[key].subskills[q.subskill] = [];
+          studentMap[key].subskills[q.subskill].push(frac);
+        });
+      }
+    });
+
+    if (!matchedAnySheet) {
+      throw new Error("Couldn't find any recognised test sheets in this file. Please upload the tracker workbook you downloaded from this page, with some marks filled in.");
     }
 
-    var students = [];
-    for (var rr = headerRowIdx + 1; rr < grid.length; rr++) {
-      var row = grid[rr];
-      if (!row) continue;
-      var first = String(row[1] || "").trim();
-      var surname = String(row[2] || "").trim();
-      if (!first && !surname) continue; // roster row never filled in — skip
-      var topics = subskillCols.map(function (sc) {
-        var raw = row[sc.col];
-        var numeric = raw === "" || raw === undefined || raw === null ? null : Number(raw);
-        if (numeric !== null && isNaN(numeric)) numeric = null;
-        return { code: sc.code, desc: sc.desc, value: numeric, band: band(raw) };
+    var students = Object.keys(studentMap).map(function (key) {
+      var s = studentMap[key];
+      var topics = subskillList.map(function (sc) {
+        var arr = s.subskills[sc.code];
+        var value = null;
+        if (arr && arr.length) value = arr.reduce(function (a, b) { return a + b; }, 0) / arr.length;
+        return { code: sc.code, desc: sc.desc, value: value, band: band(value === null ? "" : value) };
       });
-      students.push({
-        id: String(row[0] || ""), name: (first + " " + surname).trim(),
-        group: String(row[3] || ""), topics: topics,
-      });
+      return { name: s.name, group: "", id: "", topics: topics };
+    });
+
+    if (!students.length) {
+      throw new Error("No pupil names were found. Type each pupil's name in the 'Pupil name' column on at least one sheet, with at least one mark filled in, then upload again.");
     }
-    if (!students.length) throw new Error("No students found — fill in the Class Roster tab (First name / Surname) and mark at least one test before uploading.");
-    return { subskillCols: subskillCols, students: students };
+    students.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    return { subskillCols: subskillList, students: students };
   }
 
   // ---------- analysis ----------
@@ -163,7 +187,6 @@
     el.innerHTML =
       '<div class="student-card-head">' +
         "<h3>" + (student.name || "(unnamed)") + "</h3>" +
-        '<div class="meta">' + (student.id || "") + (student.group ? " · " + student.group : "") + "</div>" +
       "</div>" +
       '<div class="student-card-body">' +
         '<canvas class="donut" width="150" height="150" data-role="donut" data-idx="' + index + '"></canvas>' +
@@ -291,8 +314,7 @@
       var s = summariseTopics(student.topics);
       var yy = margin + 10;
       yy = heading(student.name || "(unnamed student)", yy);
-      yy = sub((student.id || "") + (student.group ? "  ·  Group " + student.group : ""), yy + 12);
-      yy += 26;
+      yy += 20;
       doc.addImage(studentDonutDataUrls[idx], "PNG", margin, yy, 140, 140);
       var ly = legendBlock(margin + 165, yy + 26, s.counts, s.total);
       doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.setTextColor(31, 42, 55);
