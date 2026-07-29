@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/index.html</loc><lastmod>2026-07-29</lastmod><priority>1.0</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/papers.html</loc><lastmod>2026-07-29</lastmod><priority>0.9</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/resources/index.html</loc><lastmod>2026-07-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/tracker.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/about.html</loc><lastmod>2026-07-29</lastmod><priority>0.5</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/contact.html</loc><lastmod>2026-07-29</lastmod><priority>0.5</priority></url>
+
+  <!-- Topic pages -->
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/analysis-of-data.html</loc><lastmod>2026-07-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/personal-finance.html</loc><lastmod>2026-07-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/estimation.html</loc><lastmod>2026-07-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/critical-analysis.html</loc><lastmod>2026-07-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/normal-distribution.html</loc><lastmod>2026-07-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/probability-estimation.html</loc><lastmod>2026-07-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/correlation-regression.html</loc><lastmod>2026-07-29</lastmod><priority>0.8</priority></url>
+
+  <!-- Subskill pages -->
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/analysis-of-data-averages.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/analysis-of-data-std-deviation.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/analysis-of-data-box-plots.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/analysis-of-data-outliers.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/personal-finance-interest.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/personal-finance-tax.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/personal-finance-aer-apr.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/personal-finance-currency.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/estimation-fermi.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/estimation-rounding.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/estimation-approximation.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/critical-analysis-misleading-graphs.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/critical-analysis-spreadsheets.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/critical-analysis-models.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/normal-distribution-bell-curve.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/normal-distribution-z-scores.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/normal-distribution-standard-normal.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/probability-estimation-sampling.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/probability-estimation-confidence-intervals.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/probability-estimation-estimation.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/correlation-regression-pmcc.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/correlation-regression-regression-line.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/topics/subskills/correlation-regression-prediction.html</loc><lastmod>2026-07-29</lastmod><priority>0.6</priority></url>
+
+  <!-- Resource pages -->
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/resources/presentations.html</loc><lastmod>2026-07-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/resources/worksheets.html</loc><lastmod>2026-07-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/resources/mock-papers.html</loc><lastmod>2026-07-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/resources/revision-booklets.html</loc><lastmod>2026-07-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://edgarpoels.github.io/Core-maths-compendium/resources/textbook-exercises.html</loc><lastmod>2026-07-29</lastmod><priority>0.7</priority></url>
+
+</urlset>
