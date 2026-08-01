@@ -355,6 +355,47 @@ nav {
 .crumb a { color: var(--green-dk); text-decoration: none; }
 .crumb a:hover { text-decoration: underline; }
 
+/* ═══ HOMEWORK / FOR TEACHERS PAGE ═══ */
+.principle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.2rem; }
+.principle-card {
+  background: var(--white); border: 1px solid var(--grid); border-radius: var(--radius);
+  padding: 1.3rem 1.4rem; box-shadow: var(--shadow);
+}
+.principle-card .pr-num { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.6rem; color: var(--green); line-height: 1; margin-bottom: .5rem; }
+.principle-card h4 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.02rem; color: var(--ink); margin-bottom: .4rem; }
+.principle-card p { font-size: .86rem; color: var(--muted); line-height: 1.5; }
+
+.cmp-table-wrap { overflow-x: auto; border: 1px solid var(--grid); border-radius: var(--radius); box-shadow: var(--shadow); }
+table.cmp-table { width: 100%; border-collapse: collapse; background: var(--white); font-size: .88rem; min-width: 720px; }
+table.cmp-table th, table.cmp-table td { text-align: left; padding: .85rem 1rem; border-bottom: 1px solid var(--grid); vertical-align: top; }
+table.cmp-table thead th { background: var(--ink); color: #fff; font-family: 'Space Mono', monospace; font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; }
+table.cmp-table tbody tr:last-child td { border-bottom: none; }
+table.cmp-table tbody tr:nth-child(even) { background: var(--paper); }
+table.cmp-table td strong { color: var(--ink); }
+table.cmp-table tr.recommended td:first-child { position: relative; padding-left: 1.2rem; }
+table.cmp-table tr.recommended td:first-child::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--green); }
+.pill-cost { font-family: 'Space Mono', monospace; font-size: .68rem; padding: .15rem .5rem; border-radius: 50px; background: rgba(27,153,139,.12); color: var(--green-dk); display: inline-block; }
+.pill-cost.paid { background: rgba(244,169,63,.18); color: #b5751a; }
+
+.cycle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.4rem; }
+.cycle-card {
+  background: var(--white); border: 1px solid var(--grid); border-radius: var(--radius);
+  padding: 1.5rem 1.6rem; box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.cycle-card::before { content: ""; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--green); }
+.cycle-card:nth-child(2)::before { background: var(--amber); }
+.cycle-card:nth-child(3)::before { background: var(--brand-purple, #6A4FB0); }
+.cycle-tag {
+  font-family: 'Space Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 700; padding: .2rem .6rem; border-radius: 50px; display: inline-block; margin-bottom: .8rem;
+  background: rgba(27,153,139,.12); color: var(--green-dk);
+}
+.cycle-card:nth-child(2) .cycle-tag { background: rgba(244,169,63,.18); color: #b5751a; }
+.cycle-card:nth-child(3) .cycle-tag { background: rgba(106,79,176,.14); color: var(--brand-purple, #6A4FB0); }
+.cycle-card h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.2rem; color: var(--ink); margin-bottom: .5rem; }
+.cycle-card p { font-size: .88rem; color: var(--text); margin-bottom: .5rem; }
+.cycle-card .cycle-time { font-family: 'Space Mono', monospace; font-size: .74rem; color: var(--muted); }
+
 /* ═══ FOOTER ═══ */
 footer { background: var(--ink); color: rgba(255,255,255,.55); padding: 2.5rem 0; margin-top: 3rem; }
 footer .container { display: flex; flex-direction: column; align-items: center; gap: 1.8rem; }
