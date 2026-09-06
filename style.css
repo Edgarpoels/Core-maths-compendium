@@ -274,6 +274,37 @@ nav {
 .sub-body li { font-size: .9rem; color: var(--text); padding: .3rem 0 .3rem 1.4rem; position: relative; }
 .sub-body li::before { content: "▸"; position: absolute; left: 0; color: var(--green); }
 
+/* ═══ DECK GRID (Presentations page) ═══ */
+.deck-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 1.4rem; margin-top: .4rem; }
+.deck-card { display: flex; flex-direction: column; border: 1px solid var(--grid); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); overflow: hidden; transition: transform .25s, box-shadow .25s; }
+.deck-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.deck-thumb { position: relative; height: 108px; padding: .9rem 1rem; display: flex; flex-direction: column; justify-content: space-between; color: rgba(255,255,255,.96); overflow: hidden; }
+.deck-thumb::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 2px, transparent 2px 26px); pointer-events: none; }
+.deck-thumb .deck-code { font-family: 'Space Mono', monospace; font-size: .72rem; letter-spacing: .05em; opacity: .92; }
+.deck-thumb .deck-ico { font-size: 1.5rem; align-self: flex-end; }
+.deck-thumb .mini-lines { display: flex; flex-direction: column; gap: .28rem; }
+.deck-thumb .mini-lines span { display: block; height: 5px; border-radius: 3px; background: rgba(255,255,255,.55); }
+.deck-thumb .mini-lines span:nth-child(1) { width: 78%; }
+.deck-thumb .mini-lines span:nth-child(2) { width: 55%; }
+.deck-info { padding: 1rem 1.1rem .3rem; flex: 1; }
+.deck-info h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.02rem; color: var(--ink); line-height: 1.25; margin-bottom: .3rem; }
+.deck-info p { font-size: .82rem; color: var(--muted); }
+.deck-actions { padding: .7rem 1.1rem 1.1rem; display: flex; flex-direction: column; gap: .5rem; }
+.deck-btn { display: flex; align-items: center; justify-content: center; gap: .45rem; background: var(--green); color: var(--white); font-weight: 600; font-size: .86rem; padding: .6rem .8rem; border-radius: 50px; text-decoration: none; transition: background .2s, transform .2s; }
+.deck-btn:hover { background: var(--green-dk); transform: translateY(-2px); }
+.deck-alt { font-size: .74rem; color: var(--muted); text-align: center; }
+.deck-alt a { color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--grid); text-underline-offset: 2px; }
+.deck-alt a:hover { color: var(--green-dk); }
+.deck-card:nth-of-type(9n+1) .deck-thumb { background: linear-gradient(135deg, var(--green), var(--green-dk)); }
+.deck-card:nth-of-type(9n+2) .deck-thumb { background: linear-gradient(135deg, var(--amber), #C77A1E); }
+.deck-card:nth-of-type(9n+3) .deck-thumb { background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple)); }
+.deck-card:nth-of-type(9n+4) .deck-thumb { background: linear-gradient(135deg, var(--ink), var(--ink-2)); }
+.deck-card:nth-of-type(9n+5) .deck-thumb { background: linear-gradient(135deg, var(--brand-purple), var(--green-dk)); }
+.deck-card:nth-of-type(9n+6) .deck-thumb { background: linear-gradient(135deg, var(--green-dk), var(--ink-2)); }
+.deck-card:nth-of-type(9n+7) .deck-thumb { background: linear-gradient(135deg, var(--brand-blue), var(--green)); }
+.deck-card:nth-of-type(9n+8) .deck-thumb { background: linear-gradient(135deg, var(--ink-2), var(--brand-purple)); }
+.deck-card:nth-of-type(9n+9) .deck-thumb { background: linear-gradient(135deg, var(--amber), var(--brand-purple)); }
+
 /* ═══ CALLOUT ═══ */
 .callout { border-left: 4px solid var(--amber); background: #FEF6E7; border-radius: 0 var(--radius) var(--radius) 0; padding: 1.1rem 1.3rem; margin: 1.4rem 0; font-size: .92rem; }
 .callout strong { color: #b5751a; }
