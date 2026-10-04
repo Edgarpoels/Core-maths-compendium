@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Expectation — Core Maths Compendium</title>
+<link rel="stylesheet" href="../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../index.html" class="brand">
+    <img src="../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+    <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+  
+    <a href="../contact.html">Contact</a>
+    <a href="../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#papers">Exam Structure</a>
+  <a href="../index.html#topics">Topics</a>
+  <a href="../papers.html">Past Papers</a>
+  <a href="../resources/index.html">Resources</a>
+  <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+
+  <a href="../contact.html">Contact</a>
+  <a href="../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+    <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a> / Expectation</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.9 · Paper 2B</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Expectation</h1>
+    <p class="lede">Venn diagrams, tree diagrams, conditional probability and expected value — using probability to make fair decisions.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Jump to a sub-skill</p>
+      <h2 style="font-size:1.3rem;">Practise one skill at a time</h2>
+      <p>Each sub-skill has its own animated explanation, step-by-step notes, a past-paper style question and a short worksheet with mark scheme.</p>
+    </div>
+    <div class="topic-tags" style="margin-bottom:2rem;">
+      <a href="subskills/expectation-venn-diagrams.html">Venn diagrams and notation</a>
+      <a href="subskills/expectation-tree-diagrams.html">Tree diagrams and conditional probability</a>
+      <a href="subskills/expectation-expected-value.html">Expected value</a>
+    </div>
+    <div class="section-head reveal">
+    <p class="kicker">See it in action</p>
+    <h2>Animated explanation</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <figure class="viz reveal" data-viz="prob" data-variant="expected"></figure>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Venn diagrams, notation and equally likely events</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.9a</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>A <strong>Venn diagram</strong> sorts outcomes into overlapping sets. $A \cap B$ means both, $A \cup B$ means either or both, and $A'$ means not $A$. The addition rule is $P(A \cup B) = P(A) + P(B) - P(A \cap B)$. For <strong>equally likely</strong> outcomes, probability = favourable ÷ total; <strong>Fermat's method</strong> lists all equally likely ways the rest of a game could go to share a prize fairly.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Tree diagrams, conditional probability and independence</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.9b</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>On a <strong>tree diagram</strong> you <em>multiply along</em> the branches and <em>add</em> the end results you want. <strong>Conditional probability</strong>: $P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$. Events are <strong>independent</strong> if $P(A \cap B) = P(A)P(B)$ — knowing one happened tells you nothing about the other. Without replacement, the probabilities on later branches change.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Expected value</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.9c</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>The <strong>expected value</strong> is the long-run average: $E(X) = \sum x\,P(X = x)$. The <strong>expected frequency</strong> of an event is $n \times p$. A game is <strong>fair</strong> if the expected net winnings are 0. Use expected values to compare options — but remember they ignore how risky a one-off outcome is.</p>
+  </div>
+</div>
+<div class="callout green reveal" style="margin-top:1.4rem;">
+  <strong>Worked example</strong><br/><br/>
+  <p><strong>A game costs £2 to play. A fair dice is rolled: a 6 wins £10, anything else wins nothing. Is the game fair?</strong></p>
+    <p>Net winnings $X$: a 6 gives $10 - 2 = +8$ with probability $\frac{1}{6}$; anything else gives $-2$ with probability $\frac{5}{6}$.</p><p>$E(X) = 8 \times \frac{1}{6} + (-2) \times \frac{5}{6} = \frac{8 - 10}{6} = -\frac{1}{3}$, about <strong>−33p per game</strong>. The game is <strong>not fair</strong>: in the long run the player loses about 33p each time.</p>
+</div><div class="callout reveal" style="margin-top:1.4rem;">
+  <strong>Exam tip.</strong> 'Fair' always means expected <em>net</em> winnings of zero — remember to take the stake away from the prize. And always say what the number means in context: 'on average the player loses 33p per game'.
+</div><div class="section-head reveal" style="margin-top:2.8rem;">
+      <p class="kicker">Practice</p>
+      <h2>Resources for this topic</h2>
+    </div>
+    <div class="res-list">
+      <a href="https://drive.google.com/file/d/1d2u2J9gI7JThE3fZCdfj8oa5IEty4trK/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📊</div>
+        <div><h4>Lesson presentation</h4><p>PowerPoint &middot; opens in Google Drive</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="https://drive.google.com/file/d/12gsQ4BVA9bFnNnvNmgAGy63Z9ej_UDmm/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📄</div>
+        <div><h4>End-of-topic test</h4><p>PDF &middot; printable</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="https://drive.google.com/file/d/1RP3WXDoxQIf7rR6gXlMHilPvpLOdN9KY/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico notes">🔑</div>
+        <div><h4>End-of-topic test &mdash; mark scheme</h4><p>PDF &middot; answers</p></div>
+        <span class="res-type">Open</span>
+      </a>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center;">
+      <a href="../resources/index.html" class="btn btn-dark">← Back to Resources</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../viz.js"></script>
+<script src="../app.js"></script>

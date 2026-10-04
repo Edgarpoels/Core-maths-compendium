@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gradients of curves and optimisation — Rates of Change — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <img src="../../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+  
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+
+  <a href="../../contact.html">Contact</a>
+  <a href="../../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../rates-of-change.html">Rates of Change</a> / Gradients of curves and optimisation</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.12b &middot; Rates of Change &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Gradients of curves and optimisation</h1>
+    <p class="lede">Estimate the gradient at a point on a curve using a tangent, and use zero gradient to find greatest and least values.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">See it first</p>
+    <h2>Watch it happen</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <figure class="viz reveal" data-viz="rate" data-variant="tangent"></figure>
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Gradients of curves and optimisation &mdash; the key ideas</h2>
+    <p>Click each step below to reveal it &mdash; work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; The tangent</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The <strong>gradient of a curve at a point</strong> is the gradient of the <strong>tangent</strong> to the curve at that point — the straight line that just touches the curve there and has the same direction. To estimate it from a graph, draw the tangent with a ruler and calculate rise ÷ run.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Estimating with a small chord</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>Without a graph, take a <strong>very short chord</strong> starting at the point: e.g. for $y = x^2$ at $x = 2$, use $x = 2$ and $x = 2.01$: $\dfrac{4.0401 - 4}{0.01} = 4.01 \approx 4$. For $y = x^2$ the gradient at $x$ follows the pattern $2x$.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Maximum and minimum points</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>At the top of a curve (a <strong>maximum</strong>) or the bottom (a <strong>minimum</strong>) the tangent is <strong>horizontal</strong>, so the gradient is <strong>0</strong>. To the left of a maximum the gradient is positive and to the right it is negative.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Optimisation</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p><strong>Optimisation</strong> means finding the greatest or least value of something: draw up a table or graph of the quantity and find where it peaks. For example, a rectangle with perimeter 20 m and width $x$ has area $A = x(10 - x)$; the greatest area is where the gradient is 0.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>A rectangle has perimeter 20 m and width $x$ m. Find the greatest possible area.</strong></p><p>Length $= 10 - x$, so $A = x(10 - x)$. Table: $x = 1$: 9; 2: 16; 3: 21; 4: 24; 5: <strong>25</strong>; 6: 24; 7: 21.</p><p>The greatest area is <strong>25 m²</strong>, when $x = 5$ (a square). At this point the gradient of the graph is 0.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>A rectangle has a perimeter of 20 m. Its width is $x$ m and its area is $A$ m², where $A = x(10 - x)$.<br/><br/>(a) Complete the table of $A$ for $x = 1, 2, \dots, 9$.<br/>(b) Find the greatest possible area and the value of $x$ that gives it.<br/>(c) What is the gradient of the graph of $A$ against $x$ at this point? <strong>[5 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) $A$: <strong>9, 16, 21, 24, 25, 24, 21, 16, 9</strong>. <strong>(2 marks)</strong><br/><br/>(b) Greatest area = <strong>25 m²</strong> when $x = $ <strong>5</strong>. <strong>(2 marks)</strong><br/><br/>(c) The gradient is <strong>0</strong> (the tangent at a maximum is horizontal). <strong>(1 mark)</strong></p></div>
+</div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Gradients of curves and optimisation worksheet</h2>
+    <p>Five short questions. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>Using the pattern gradient $= 2x$, find the gradient of $y = x^2$ at $x = 4$.</li><li>Estimate the gradient of $y = x^2$ at $x = 2$ using the chord from $x = 2$ to $x = 2.01$.</li><li>The tangent to a curve at P passes through (1, 2) and (5, 10). Find the gradient of the curve at P.</li><li>A rectangle has perimeter 16 m and width $x$ m. Its area is $A = x(8 - x)$. Find the greatest possible area.</li><li>What is the gradient of the tangent at the highest point of a curve?</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>$2 \times 4 = $ <strong>8</strong>.</li><li>$\dfrac{4.0401 - 4}{0.01} = $ <strong>4.01</strong> ≈ 4.</li><li>$\dfrac{10 - 2}{5 - 1} = $ <strong>2</strong>.</li><li>Greatest at $x = 4$: $A = 4 \times 4 = $ <strong>16 m²</strong>.</li><li><strong>0</strong> (the tangent is horizontal).</li></ol></div>
+</div>
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../rates-of-change.html" class="btn btn-dark">← Back to Rates of Change</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../../viz.js"></script>
+<script src="../../app.js"></script>
+</body></html>

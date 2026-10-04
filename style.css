@@ -381,6 +381,13 @@ nav {
   padding: .55rem 1.2rem;
 }
 
+/* ═══ FORUM ═══ */
+.forum-rules { max-width: 760px; margin: 0 auto 2rem; background: var(--paper); border: 1px solid var(--grid); border-radius: 14px; padding: 1.2rem 1.6rem; }
+.forum-rules h3 { font-size: 1.05rem; margin-bottom: .6rem; }
+.forum-rules ul { margin: 0; padding-left: 1.2rem; color: var(--muted); font-size: .92rem; line-height: 1.7; }
+.forum-embed { max-width: 860px; margin: 0 auto; min-height: 120px; }
+.forum-fallback { max-width: 760px; margin: 0 auto; text-align: center; padding: 1.4rem; border: 1px dashed var(--grid); border-radius: 14px; color: var(--muted); }
+
 /* ═══ BREADCRUMB ═══ */
 .crumb { font-family: 'Space Mono', monospace; font-size: .76rem; color: var(--muted); padding: 1rem 0 0; }
 .crumb a { color: var(--green-dk); text-decoration: none; }
@@ -571,3 +578,14 @@ footer .footer-logo img { height: 70px; width: auto; }
 .topic-card.is-soon:hover { transform: none; box-shadow: var(--shadow); }
 .topic-card.is-soon .topic-num { background: var(--muted); }
 .status.soon { background: rgba(255,255,255,.25); color: #fff; }
+
+
+/* ═══ ANIMATED EXPLAINERS (viz.js) ═══ */
+figure.viz { margin: 1.4rem auto 1.8rem; max-width: 780px; background: var(--paper); border: 1px solid var(--grid); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+.viz-stage { min-height: 120px; }
+.viz-stage svg { display: block; width: 100%; height: auto; }
+.viz-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 1rem; border-top: 1px solid var(--grid); background: var(--white); }
+.viz-cap { font-size: .84rem; color: var(--muted); line-height: 1.4; }
+.viz-replay { border: 1px solid var(--grid); background: var(--white); color: var(--ink-2); border-radius: 50px; padding: .35rem .9rem; font-size: .8rem; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; }
+.viz-replay:hover { border-color: var(--green); color: var(--green-dk); }
+@media (max-width: 600px) { .viz-bar { flex-direction: column; align-items: flex-start; gap: .5rem; } }

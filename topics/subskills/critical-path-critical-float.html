@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Critical activities and float — Critical Path Analysis — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <img src="../../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+  
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+
+  <a href="../../contact.html">Contact</a>
+  <a href="../../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../critical-path-analysis.html">Critical Path Analysis</a> / Critical activities and float</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.8c &middot; Critical Path Analysis &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Critical activities and float</h1>
+    <p class="lede">Find the critical path, calculate float, read Gantt charts, and work out the effect of delays and crashing.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">See it first</p>
+    <h2>Watch it happen</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <h3 style="margin:1.2rem auto .1rem;max-width:780px;font-size:1.05rem;color:var(--ink-2);">Find the critical path</h3>
+  <figure class="viz reveal" data-viz="network" data-variant="critical"></figure>
+  <h3 style="margin:1.2rem auto .1rem;max-width:780px;font-size:1.05rem;color:var(--ink-2);">The same project as a Gantt chart</h3>
+  <figure class="viz reveal" data-viz="network" data-variant="gantt"></figure>
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Critical activities and float &mdash; the key ideas</h2>
+    <p>Click each step below to reveal it &mdash; work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; Float</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p><strong>Float</strong> is the spare time an activity has: <strong>float = late time − early time − duration</strong>. An activity can be delayed by up to its float without delaying the project.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Critical activities and the critical path</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>An activity with <strong>zero float</strong> is <strong>critical</strong>. Join the critical activities from start to finish to get the <strong>critical path</strong>; its length is the minimum completion time. There can be more than one critical path. Any delay to a critical activity delays the whole project by the same amount.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Gantt charts</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A <strong>Gantt chart</strong> (or cascade diagram) draws each activity as a bar on a time axis, starting at its early time. The float is shown as a dashed box after the bar. Critical activities have no dashed box. You can read off which activities <em>must</em> be happening at a given time (the critical ones) and which <em>could</em> be.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Delays, crashing and workers</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>If an activity is delayed by more than its float, the project is delayed by (delay − float). <strong>Crashing</strong> means shortening an activity (usually at extra cost): it only helps if the activity is critical — and once a path has been shortened enough, another path may become critical. A <strong>resource histogram</strong> shows how many workers are needed each day; non-critical activities can be moved within their float to level the peaks.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>For the network A (3), B (5), C (4, after A), D (3, after B), E (3, after C and D), find the float of each activity and say what happens if C is delayed by 3 days.</strong></p><p>Floats (late − early − duration): A: 4−0−3 = 1; B: 5−0−5 = 0; C: 8−3−4 = 1; D: 8−5−3 = 0; E: 11−8−3 = 0. Critical path: <strong>B → D → E</strong> (11 days).</p><p>C has float 1, so a 3-day delay uses up its 1 day of float and delays the project by 3 − 1 = <strong>2 days</strong>.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>The activities of a project have early and late times (E, L) as follows, with durations: A (4): E 0, L 4; B (6): E 0, L 7; C (5): E 4, L 9; D (2): E 6, L 9; E (7): E 4, L 12; F (3): E 9, L 12. The minimum completion time is 12 days.<br/><br/>(a) Find the float of each activity and state the critical path.<br/>(b) Activity E is delayed by 3 days. What is the effect on the project?<br/>(c) Activity C is crashed so it takes 3 days. Find the new minimum completion time (the longest other route is A, E = 11 days and B, D, F = 11 days). <strong>[6 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) Float = L − E − duration. A: 4−0−4 = <strong>0</strong>; B: 7−0−6 = <strong>1</strong>; C: 9−4−5 = <strong>0</strong>; D: 9−6−2 = <strong>1</strong>; E: 12−4−7 = <strong>1</strong>; F: 12−9−3 = <strong>0</strong>. Critical path: <strong>A → C → F</strong> (4+5+3 = 12). <strong>(3 marks)</strong><br/><br/>(b) E has float 1, so a 3-day delay delays the project by 3 − 1 = <strong>2 days</strong> (completion 14 days). <strong>(1 mark)</strong><br/><br/>(c) A → C → F becomes 4+3+3 = 10, but the other routes are still 11, so the new minimum is <strong>11 days</strong> — crashing C saves only 1 day because another route becomes critical. <strong>(2 marks)</strong></p></div>
+</div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Critical activities and float worksheet</h2>
+    <p>Five short questions. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>An activity has early time 5, duration 4 and late time 12. Find its float.</li><li>Route 1 has activities lasting 4, 6 and 3 days; route 2 has activities lasting 5 and 7 days. Which route is critical and how long is the project?</li><li>An activity on the critical path is delayed by 2 days. What happens to the project?</li><li>A Gantt chart shows activity D starting at day 4 and lasting 3 days, with a float of 2 days. What is its latest finish?</li><li>The critical path is 12 days. The next longest route is 11 days. A critical activity is crashed by 2 days. What is the new minimum completion time?</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>Float = 12 − 5 − 4 = <strong>3 days</strong>.</li><li>Route 1: 4+6+3 = 13. Route 2: 5+7 = 12. Route 1 is critical; the project takes <strong>13 days</strong>.</li><li>The project is delayed by <strong>2 days</strong> (critical activities have zero float).</li><li>Early finish = 4 + 3 = 7. Latest finish = 7 + 2 = <strong>day 9</strong>.</li><li>The critical route becomes 10 days but the other route is 11, so the new minimum is <strong>11 days</strong>.</li></ol></div>
+</div>
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../critical-path-analysis.html" class="btn btn-dark">← Back to Critical Path Analysis</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../../viz.js"></script>
+<script src="../../app.js"></script>
+</body></html>

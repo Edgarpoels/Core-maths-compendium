@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Exponential Functions — Core Maths Compendium</title>
+<link rel="stylesheet" href="../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../index.html" class="brand">
+    <img src="../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+    <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+  
+    <a href="../contact.html">Contact</a>
+    <a href="../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#papers">Exam Structure</a>
+  <a href="../index.html#topics">Topics</a>
+  <a href="../papers.html">Past Papers</a>
+  <a href="../resources/index.html">Resources</a>
+  <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+
+  <a href="../contact.html">Contact</a>
+  <a href="../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+    <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a> / Exponential Functions</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.13 · Paper 2C</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Exponential Functions</h1>
+    <p class="lede">Growth and decay, the number e, and using logarithms to solve equations like $a^x = b$.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Jump to a sub-skill</p>
+      <h2 style="font-size:1.3rem;">Practise one skill at a time</h2>
+      <p>Each sub-skill has its own animated explanation, step-by-step notes, a past-paper style question and a short worksheet with mark scheme.</p>
+    </div>
+    <div class="topic-tags" style="margin-bottom:2rem;">
+      <a href="subskills/exponential-growth.html">Exponential growth and functions</a>
+      <a href="subskills/exponential-e.html">e and the exponential function</a>
+      <a href="subskills/exponential-ln.html">The inverse function ln and solving a^x = b</a>
+    </div>
+    <div class="section-head reveal">
+    <p class="kicker">See it in action</p>
+    <h2>Animated explanation</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <figure class="viz reveal" data-viz="expo" data-variant="compare"></figure>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Exponential growth and functions</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.13a</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p><strong>Exponential growth</strong> means multiplying by the <em>same factor</em> in equal steps: $y = ab^x$, where $a$ is the starting value and $b$ is the multiplier. If $b > 1$ it is growth; if $0 < b < 1$ it is <strong>decay</strong>. A 3% rise each year has multiplier 1.03; a 12% fall has multiplier 0.88.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>e and the function eˣ</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.13b</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>The number $e \approx 2.718$ is special: the function $y = e^x$ has a <strong>gradient equal to its height</strong> at every point. Models of continuous growth or decay are written $N = Ae^{kt}$ — use the $e^x$ button on your calculator.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>The inverse function ln and solving aˣ = b</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.13c</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>$\ln x$ is the <strong>inverse</strong> of $e^x$: $\ln(e^x) = x$ and $e^{\ln x} = x$. To solve $a^x = b$, take logarithms: $x = \dfrac{\ln b}{\ln a}$. This finds, for example, how long money takes to double at a given interest rate.</p>
+  </div>
+</div>
+<div class="callout green reveal" style="margin-top:1.4rem;">
+  <strong>Worked example</strong><br/><br/>
+  <p><strong>A town's population is 8,000 and grows by 3% each year. Write a formula for the population $P$ after $t$ years and find $P$ after 10 years.</strong></p>
+    <p>Multiplier = 1.03, so $P = 8000 \times 1.03^t$.</p><p>After 10 years: $P = 8000 \times 1.03^{10} = 8000 \times 1.3439 = $ <strong>10 751</strong> (nearest whole number).</p>
+</div><div class="callout reveal" style="margin-top:1.4rem;">
+  <strong>Exam tip.</strong> Check the multiplier carefully: 'grows by 3%' is $\times 1.03$, but 'falls by 12%' is $\times 0.88$ (not 0.12). When solving $a^x = b$, take logs of both sides and write $x \ln a = \ln b$.
+</div><div class="section-head reveal" style="margin-top:2.8rem;">
+      <p class="kicker">Practice</p>
+      <h2>Resources for this topic</h2>
+    </div>
+    <div class="res-list">
+      <a href="https://drive.google.com/file/d/1Xqdek3m2iNU4iDCzv8UBL-KMQhznivVx/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📊</div>
+        <div><h4>Lesson presentation</h4><p>PowerPoint &middot; opens in Google Drive</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="https://drive.google.com/file/d/1EBn7uOitxe0EhJ_IRj4k8g1sTIYcSdLp/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📄</div>
+        <div><h4>End-of-topic test</h4><p>PDF &middot; printable</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="https://drive.google.com/file/d/1MTnqjLRowk2uQ8VUX8a_BM1mhR3xZSS-/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico notes">🔑</div>
+        <div><h4>End-of-topic test &mdash; mark scheme</h4><p>PDF &middot; answers</p></div>
+        <span class="res-type">Open</span>
+      </a>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center;">
+      <a href="../resources/index.html" class="btn btn-dark">← Back to Resources</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../viz.js"></script>
+<script src="../app.js"></script>

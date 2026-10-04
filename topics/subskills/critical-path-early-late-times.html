@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Early and late times — Critical Path Analysis — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <img src="../../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+  
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+
+  <a href="../../contact.html">Contact</a>
+  <a href="../../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../critical-path-analysis.html">Critical Path Analysis</a> / Early and late times</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.8b &middot; Critical Path Analysis &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Early and late times</h1>
+    <p class="lede">The forward pass and backward pass: find the earliest each activity can start, the latest it can finish, and the minimum project time.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">See it first</p>
+    <h2>Watch it happen</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <figure class="viz reveal" data-viz="network" data-variant="times"></figure>
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Early and late times &mdash; the key ideas</h2>
+    <p>Click each step below to reveal it &mdash; work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; Forward pass — early times</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The <strong>early time</strong> of an activity is the earliest it can start. Activities with no predecessors have early time 0. For any other activity, work out (early time + duration) for each immediate predecessor and take the <strong>largest</strong> — it has to wait for <em>all</em> of them.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Minimum completion time</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The project cannot finish before the last activity has finished. The <strong>minimum completion time</strong> is the largest value of (early time + duration) over the final activities — the length of the longest route through the network.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Backward pass — late times</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The <strong>late time</strong> of an activity is the latest time it can <em>finish</em> without delaying the project. The final activities have late time = minimum completion time. For any other activity, work out (late time − duration) for each of its successors and take the <strong>smallest</strong> — it must be done in time for <em>all</em> of them.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Recording and checking</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>Write the early time in the left cell and the late time in the right cell of each box. Check: activities with no predecessors have early time 0, and the final activity's late time equals the minimum completion time. Early time + duration can never be more than the late time.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>Using A (3), B (5), C (4, after A), D (3, after B), E (3, after C and D), find every early and late time.</strong></p><p><strong>Forward:</strong> A: 0, B: 0, C: 0+3 = 3, D: 0+5 = 5, E: max(3+4, 5+3) = max(7, 8) = <strong>8</strong>. Minimum completion time = 8 + 3 = <strong>11</strong>.</p><p><strong>Backward:</strong> E: 11. C: 11−3 = <strong>8</strong>. D: <strong>8</strong>. A: 8−4 = <strong>4</strong>. B: 8−3 = <strong>5</strong>.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>A project has activities A (4 days, –), B (6 days, –), C (5 days, after A), D (2 days, after B), E (7 days, after A) and F (3 days, after C and D).<br/><br/>(a) Draw the network and complete a forward pass to find each early time.<br/>(b) Complete a backward pass to find each late time.<br/>(c) State the minimum completion time. <strong>[6 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) Early times: A 0, B 0, C 4, D 6, E 4, F = max(4+5, 6+2) = max(9, 8) = <strong>9</strong>. <strong>(3 marks)</strong><br/><br/>(b) Minimum time is 12 (see c), so F's late time is 12. E: 12. C: 12−3 = 9. D: 9. A: min(9−5, 12−7) = min(4, 5) = <strong>4</strong>. B: 9−2 = <strong>7</strong>. <strong>(2 marks)</strong><br/><br/>(c) F finishes at 9+3 = 12; E finishes at 4+7 = 11. Minimum completion time = <strong>12 days</strong>. <strong>(1 mark)</strong></p></div>
+</div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Early and late times worksheet</h2>
+    <p>Five short questions. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>Activity X follows U and V. U has early time 2 and duration 4; V has early time 3 and duration 5. Find the early time of X.</li><li>Activity P is followed by Q and R. Q has late time 15 and duration 4; R has late time 12 and duration 3. Find the late time of P.</li><li>A (3 days) is followed by B (4 days), which is followed by C (2 days). Find each early time and the minimum completion time.</li><li>Why do we take the <em>largest</em> value on the forward pass?</li><li>The final activity has early time 14 and duration 5. What is its late time?</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>U: 2+4 = 6. V: 3+5 = 8. Early time of X = max(6, 8) = <strong>8</strong>.</li><li>Q: 15−4 = 11. R: 12−3 = 9. Late time of P = min(11, 9) = <strong>9</strong>.</li><li>A: 0, B: 3, C: 7. Minimum completion time = 7 + 2 = <strong>9 days</strong>.</li><li>An activity cannot start until <em>all</em> its predecessors are finished, so it must wait for the one that finishes <em>last</em> — the largest value.</li><li>The late time of the final activity equals the minimum completion time = 14 + 5 = <strong>19</strong>.</li></ol></div>
+</div>
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../critical-path-analysis.html" class="btn btn-dark">← Back to Critical Path Analysis</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../../viz.js"></script>
+<script src="../../app.js"></script>
+</body></html>

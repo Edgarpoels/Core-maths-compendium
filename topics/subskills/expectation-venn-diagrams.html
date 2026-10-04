@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Venn diagrams and notation — Expectation — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <img src="../../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+  
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+
+  <a href="../../contact.html">Contact</a>
+  <a href="../../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../expectation.html">Expectation</a> / Venn diagrams and notation</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.9a &middot; Expectation &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Venn diagrams and notation</h1>
+    <p class="lede">Sort information into a Venn diagram, use set notation, and find probabilities with equally likely outcomes and Fermat's method.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">See it first</p>
+    <h2>Watch it happen</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <figure class="viz reveal" data-viz="prob" data-variant="venn"></figure>
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Venn diagrams and notation &mdash; the key ideas</h2>
+    <p>Click each step below to reveal it &mdash; work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; Sets and notation</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A <strong>set</strong> is a collection of outcomes. $P(A)$ is the probability of $A$. $A'$ means <em>not</em> $A$, so $P(A') = 1 - P(A)$. $A \cap B$ means <em>both</em> $A$ and $B$. $A \cup B$ means <em>$A$ or $B$ or both</em>. The whole rectangle is the sample space.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Filling in a Venn diagram</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>Start in the <strong>middle</strong> (the overlap), then work outwards: set total minus overlap gives the 'only' regions. Finally, anything left over goes in the 'neither' region outside both circles. All the numbers must add to the total.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; The addition rule</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>$P(A \cup B) = P(A) + P(B) - P(A \cap B)$. We subtract the overlap because it has been counted twice. If $A$ and $B$ cannot happen together ($P(A \cap B) = 0$) they are <strong>mutually exclusive</strong> and the rule is simply $P(A) + P(B)$.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Equally likely outcomes and Fermat's method</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>When outcomes are <strong>equally likely</strong>, $P(\text{event}) = \dfrac{\text{number of favourable outcomes}}{\text{total number of outcomes}}$. <strong>Fermat's method</strong> shares a prize fairly when a game is stopped early: list all the equally likely ways the remaining games could go, find the fraction in which each player wins, and split the prize in that ratio.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>In a class of 30, 18 study Maths (M), 13 study Physics (P) and 5 study both. Draw a Venn diagram and find $P(M \cup P)$.</strong></p><p>Both = 5. Maths only = 18 − 5 = 13. Physics only = 13 − 5 = 8. Neither = 30 − (13 + 5 + 8) = 4.</p><p>$P(M \cup P) = \dfrac{13 + 5 + 8}{30} = \dfrac{26}{30} = \dfrac{13}{15}$. Check with the addition rule: $\frac{18}{30} + \frac{13}{30} - \frac{5}{30} = \frac{26}{30}$ ✓.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>80 people were asked how they travel to work. 45 use the bus, 30 use the train and 12 use both.<br/><br/>(a) Draw a Venn diagram to show this information.<br/>(b) A person is chosen at random. Find the probability that they use the bus or the train (or both).<br/>(c) Find the probability that they use neither. <strong>[5 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) Both = 12; bus only = 45 − 12 = <strong>33</strong>; train only = 30 − 12 = <strong>18</strong>; neither = 80 − (33 + 12 + 18) = <strong>17</strong>. <strong>(3 marks)</strong><br/><br/>(b) $P(B \cup T) = \dfrac{33 + 12 + 18}{80} = \dfrac{63}{80}$. <strong>(1 mark)</strong><br/><br/>(c) $P(\text{neither}) = \dfrac{17}{80}$. <strong>(1 mark)</strong></p></div>
+</div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Venn diagrams and notation worksheet</h2>
+    <p>Five short questions. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>$P(A) = 0.4$, $P(B) = 0.5$ and $P(A \cap B) = 0.2$. Find $P(A \cup B)$.</li><li>A fair six-sided dice is rolled. Find the probability of a prime number.</li><li>In a class of 25, 15 play football, 10 play tennis and 3 play both. How many play neither?</li><li>$P(A \cup B) = 0.8$, $P(A) = 0.5$ and $P(B) = 0.6$. Find $P(A \cap B)$.</li><li>Two players play a first-to-3 match for a £60 prize. Player A leads 2–1 when the match has to stop. Use Fermat's method (list the results of 2 more games) to share the prize fairly.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>$0.4 + 0.5 - 0.2 = $ <strong>0.7</strong>.</li><li>Primes: 2, 3, 5 → <strong>3/6 = 1/2</strong>.</li><li>Football only 12, both 3, tennis only 7, so 12+3+7 = 22 play at least one. Neither = 25 − 22 = <strong>3</strong>.</li><li>$P(A \cap B) = 0.5 + 0.6 - 0.8 = $ <strong>0.3</strong>.</li><li>Play 2 more games: AA, AB, BA, BB (equally likely). A wins the match in AA, AB and BA (3 of 4); B only in BB. A: ¾ × £60 = <strong>£45</strong>; B: ¼ × £60 = <strong>£15</strong>.</li></ol></div>
+</div>
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../expectation.html" class="btn btn-dark">← Back to Expectation</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../../viz.js"></script>
+<script src="../../app.js"></script>
+</body></html>

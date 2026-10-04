@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tree diagrams and conditional probability — Expectation — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <img src="../../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+  
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+
+  <a href="../../contact.html">Contact</a>
+  <a href="../../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../expectation.html">Expectation</a> / Tree diagrams and conditional probability</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.9b &middot; Expectation &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Tree diagrams and conditional probability</h1>
+    <p class="lede">Use tree diagrams for combined events, calculate conditional probabilities, and test for independence.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">See it first</p>
+    <h2>Watch it happen</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <figure class="viz reveal" data-viz="prob" data-variant="tree"></figure>
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Tree diagrams and conditional probability &mdash; the key ideas</h2>
+    <p>Click each step below to reveal it &mdash; work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; Tree diagrams</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>A <strong>tree diagram</strong> shows the outcomes of one event after another. Each branch is labelled with its probability, and the branches leaving any point must add up to 1. The second set of branches show probabilities <em>given</em> what happened first.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Multiply along, add between</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The probability of a particular route is found by <strong>multiplying along</strong> the branches ('and'). To find the probability of one of several routes, <strong>add</strong> the route probabilities ('or'). Check that all the end probabilities add up to 1.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Conditional probability</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>$P(A \mid B)$ means 'the probability of $A$ <em>given</em> $B$ has happened': $P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$. On a tree diagram, $P(A \cap B)$ is a route probability and $P(B)$ is the sum of all the routes in which $B$ happens.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Independence and replacement</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>$A$ and $B$ are <strong>independent</strong> if $P(A \cap B) = P(A) \times P(B)$, equivalently $P(A \mid B) = P(A)$. Selecting <em>with replacement</em> gives independent events; <em>without replacement</em> the later probabilities change because the items left have changed.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>The probability that it rains is 0.3. If it rains, the probability the bus is late is 0.4; if it does not, 0.1. Find $P(\text{late})$ and $P(\text{rain} \mid \text{late})$.</strong></p><p>Routes: rain and late = 0.3 × 0.4 = <strong>0.12</strong>; no rain and late = 0.7 × 0.1 = <strong>0.07</strong>.</p><p>$P(\text{late}) = 0.12 + 0.07 = 0.19$.</p><p>$P(\text{rain} \mid \text{late}) = \dfrac{0.12}{0.19} = \dfrac{12}{19} \approx 0.632$.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>A bag contains 6 red counters and 4 blue counters. Two counters are taken at random <em>without replacement</em>.<br/><br/>(a) Complete a tree diagram for the two selections.<br/>(b) Find the probability that both counters are the same colour.<br/>(c) Given that the first counter is red, find the probability the second is blue. <strong>[5 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) First: R 6/10, B 4/10. After R: R 5/9, B 4/9. After B: R 6/9, B 3/9. <strong>(2 marks)</strong><br/><br/>(b) $P(RR) + P(BB) = \frac{6}{10} \times \frac{5}{9} + \frac{4}{10} \times \frac{3}{9} = \frac{30}{90} + \frac{12}{90} = \frac{42}{90} = \frac{7}{15}$. <strong>(2 marks)</strong><br/><br/>(c) $P(\text{second blue} \mid \text{first red}) = \frac{4}{9}$. <strong>(1 mark)</strong></p></div>
+</div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Tree diagrams and conditional probability worksheet</h2>
+    <p>Five short questions. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>$A$ and $B$ are independent with $P(A) = 0.3$ and $P(B) = 0.5$. Find $P(A \cap B)$.</li><li>A bag has 3 red and 2 blue counters. Two are taken <em>with</em> replacement. Find $P(\text{both red})$.</li><li>$P(A \cap B) = 0.12$ and $P(B) = 0.4$. Find $P(A \mid B)$.</li><li>$P(A) = 0.5$, $P(B) = 0.4$ and $P(A \cap B) = 0.25$. Are $A$ and $B$ independent?</li><li>A bag has 4 red and 6 blue counters. Two are taken <em>without</em> replacement. Find $P(\text{both red})$.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>$0.3 \times 0.5 = $ <strong>0.15</strong>.</li><li>$\frac{3}{5} \times \frac{3}{5} = $ <strong>9/25</strong>.</li><li>$\dfrac{0.12}{0.4} = $ <strong>0.3</strong>.</li><li>$P(A)P(B) = 0.5 \times 0.4 = 0.2$, which is not 0.25. So <strong>not independent</strong>.</li><li>$\frac{4}{10} \times \frac{3}{9} = \frac{12}{90} = $ <strong>2/15</strong>.</li></ol></div>
+</div>
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../expectation.html" class="btn btn-dark">← Back to Expectation</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../../viz.js"></script>
+<script src="../../app.js"></script>
+</body></html>

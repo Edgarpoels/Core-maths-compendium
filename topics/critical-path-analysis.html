@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Critical Path Analysis — Core Maths Compendium</title>
+<link rel="stylesheet" href="../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../index.html" class="brand">
+    <img src="../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+    <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+  
+    <a href="../contact.html">Contact</a>
+    <a href="../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#papers">Exam Structure</a>
+  <a href="../index.html#topics">Topics</a>
+  <a href="../papers.html">Past Papers</a>
+  <a href="../resources/index.html">Resources</a>
+  <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+
+  <a href="../contact.html">Contact</a>
+  <a href="../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+    <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a> / Critical Path Analysis</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.8 · Paper 2B</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Critical Path Analysis</h1>
+    <p class="lede">Activity networks, early and late times, critical paths and float — how to plan a project and find the activities that cannot slip.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Jump to a sub-skill</p>
+      <h2 style="font-size:1.3rem;">Practise one skill at a time</h2>
+      <p>Each sub-skill has its own animated explanation, step-by-step notes, a past-paper style question and a short worksheet with mark scheme.</p>
+    </div>
+    <div class="topic-tags" style="margin-bottom:2rem;">
+      <a href="subskills/critical-path-activity-networks.html">Activity networks</a>
+      <a href="subskills/critical-path-early-late-times.html">Early and late times</a>
+      <a href="subskills/critical-path-critical-float.html">Critical activities and float</a>
+    </div>
+    <div class="section-head reveal">
+    <p class="kicker">See it in action</p>
+    <h2>Animated explanation</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <figure class="viz reveal" data-viz="network" data-variant="critical"></figure>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Activity networks</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.8a</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>A project is split into <strong>activities</strong>, each with a duration and a list of <strong>immediate predecessors</strong> (activities that must finish first). A <strong>precedence table</strong> records this, and an <strong>activity network</strong> draws it: a box for each activity with arrows from each immediate predecessor. Following an <strong>algorithm</strong> — a clear step-by-step procedure — is the same skill used to build these networks.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Early and late times</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.8b</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>The <strong>forward pass</strong> finds each activity's <strong>early time</strong> (earliest start): take the <em>largest</em> of (early time + duration) over its predecessors. The <strong>backward pass</strong> finds each <strong>late time</strong> (latest finish): take the <em>smallest</em> of (late time of a successor − its duration). The minimum completion time is the longest route through the network.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Critical activities, float and Gantt charts</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.8c</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p><strong>Float</strong> = late time − early time − duration. Activities with <strong>zero float</strong> are <strong>critical</strong>; they form the <strong>critical path</strong> — a delay to any of them delays the whole project. A <strong>Gantt chart</strong> shows each activity as a bar with its float dashed. Shortening (<strong>crashing</strong>) only helps if you shorten a <em>critical</em> activity, and a new critical path may then appear.</p>
+  </div>
+</div>
+<div class="callout green reveal" style="margin-top:1.4rem;">
+  <strong>Worked example</strong><br/><br/>
+  <p><strong>A project has activities A (3 days), B (5 days), C (4 days, after A), D (3 days, after B) and E (3 days, after C and D). Find the minimum completion time and the critical path.</strong></p>
+    <p>Forward pass: A and B start at 0. C starts at 3. D starts at 5. E must wait for both C (3+4 = 7) and D (5+3 = 8), so E starts at max(7, 8) = <strong>8</strong>. Minimum completion time = 8 + 3 = <strong>11 days</strong>.</p><p>Backward pass: E's late time is 11, so C and D must finish by 11 − 3 = 8. B must finish by 8 − 3 = 5; A by 8 − 4 = 4.</p><p>Float: A = 4−0−3 = 1; B = 5−0−5 = 0; C = 8−3−4 = 1; D = 8−5−3 = 0; E = 11−8−3 = 0. <strong>Critical path: B → D → E.</strong></p>
+</div><div class="callout reveal" style="margin-top:1.4rem;">
+  <strong>Exam tip.</strong> Write early times in the left cell and late times in the right cell of every box as you go. Most lost marks come from taking the smaller value on the forward pass or the larger value on the backward pass — remember: forward = largest, backward = smallest.
+</div><div class="section-head reveal" style="margin-top:2.8rem;">
+      <p class="kicker">Practice</p>
+      <h2>Resources for this topic</h2>
+    </div>
+    <div class="res-list">
+      <a href="https://drive.google.com/file/d/1La9a2q1peuK3v2ZqPcFmeIE6IgHh-YHX/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📊</div>
+        <div><h4>Lesson presentation</h4><p>PowerPoint &middot; opens in Google Drive</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="https://drive.google.com/file/d/1nbmIuKKdQLqh7_WrJ_xuOXyv79V8lB0B/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📄</div>
+        <div><h4>End-of-topic test</h4><p>PDF &middot; printable</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="https://drive.google.com/file/d/1RtGJ9wTUT-TLmAnIGUDJJ0Q6HHwEbi2I/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico notes">🔑</div>
+        <div><h4>End-of-topic test &mdash; mark scheme</h4><p>PDF &middot; answers</p></div>
+        <span class="res-type">Open</span>
+      </a>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center;">
+      <a href="../resources/index.html" class="btn btn-dark">← Back to Resources</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../viz.js"></script>
+<script src="../app.js"></script>

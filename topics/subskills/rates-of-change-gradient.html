@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gradient and zooming in — Rates of Change — Core Maths Compendium</title>
+<link rel="stylesheet" href="../../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../../index.html" class="brand">
+    <img src="../../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+  
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../../index.html">Home</a>
+  <a href="../../index.html#papers">Exam Structure</a>
+  <a href="../../index.html#topics">Topics</a>
+  <a href="../../papers.html">Past Papers</a>
+  <a href="../../resources/index.html">Resources</a>
+  <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+
+  <a href="../../contact.html">Contact</a>
+  <a href="../../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../../index.html">Home</a>
+    <a href="../../index.html#papers">Exam Structure</a>
+    <a href="../../index.html#topics">Topics</a>
+    <a href="../../papers.html">Past Papers</a>
+    <a href="../../resources/index.html">Resources</a>
+    <a href="../../homework.html">Homework</a>
+    <a href="../../about.html">About</a>
+    <a href="../../contact.html">Contact</a>
+    <a href="../../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="../rates-of-change.html">Rates of Change</a> / Gradient and zooming in</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.12a &middot; Rates of Change &middot; Sub-skill</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Gradient and zooming in</h1>
+    <p class="lede">Calculate rates of change from straight-line graphs, and see how chords on a curve get closer to the gradient at a point.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+
+  <div class="section-head reveal">
+    <p class="kicker">See it first</p>
+    <h2>Watch it happen</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <figure class="viz reveal" data-viz="rate" data-variant="gradient"></figure>
+
+  <div class="section-head reveal">
+    <p class="kicker">Build it up, step by step</p>
+    <h2>Gradient and zooming in &mdash; the key ideas</h2>
+    <p>Click each step below to reveal it &mdash; work through them in order the first time round.</p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 1 &middot; Rate of change</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">1 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>The <strong>rate of change</strong> of $y$ with respect to $x$ is $\dfrac{\text{change in } y}{\text{change in } x}$. Its units are '(units of $y$) per (unit of $x$)': kilometres per hour, pounds per month, degrees per minute.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 2 &middot; Straight lines</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">2 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>On a straight-line graph the rate of change is <strong>constant</strong>: choose any two points and calculate rise ÷ run. A steeper line means a faster rate; a negative gradient means the quantity is falling.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 3 &middot; Average rate on a curve (a chord)</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>On a curve the rate keeps changing. The <strong>average rate of change</strong> between two points is the gradient of the straight line joining them — a <strong>chord</strong>: $\dfrac{y_2 - y_1}{x_2 - x_1}$.</p></div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head"><h3>Step 4 &middot; Zooming in</h3><div style="display:flex;align-items:center;gap:.8rem;"><span class="code">4 of 4</span><span class="chev">▾</span></div></div>
+  <div class="sub-body"><p>If you <strong>zoom in</strong> close to a point on a smooth curve it looks like a straight line. Taking a <em>shorter and shorter chord</em> gives gradients that settle towards one value — the <strong>gradient at that point</strong>, which is the gradient of the tangent.</p></div>
+</div>
+
+  <div class="callout green reveal" style="margin-top:1.4rem;">
+    <strong>Worked example</strong><br/><br/>
+    <p><strong>For $y = x^2$, find the average rate of change between $x = 1$ and $x = 3$, then between $x = 1$ and $x = 1.1$.</strong></p><p>$x = 1 \to y = 1$; $x = 3 \to y = 9$: gradient $= \dfrac{9 - 1}{3 - 1} = 4$.</p><p>$x = 1.1 \to y = 1.21$: gradient $= \dfrac{1.21 - 1}{0.1} = 2.1$.</p><p>The shorter chord gives a value closer to the gradient at $x = 1$, which is <strong>2</strong>.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Test yourself</p>
+    <h2>Past-paper style question</h2>
+  </div>
+  <div class="callout reveal">
+    <p>The temperature at 9 am is 12 °C, at 11 am it is 15 °C and at 1 pm it is 24 °C.<br/><br/>(a) Find the average rate of change of temperature between 9 am and 1 pm, in °C per hour.<br/>(b) Find the average rate between 9 am and 11 am, and between 11 am and 1 pm.<br/>(c) When was the temperature rising faster? <strong>[5 marks]</strong></p>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Show the answer</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><p>(a) $\dfrac{24 - 12}{4} = $ <strong>3 °C per hour</strong>. <strong>(2 marks)</strong><br/><br/>(b) 9–11 am: $\dfrac{15 - 12}{2} = $ <strong>1.5 °C/h</strong>. 11 am–1 pm: $\dfrac{24 - 15}{2} = $ <strong>4.5 °C/h</strong>. <strong>(2 marks)</strong><br/><br/>(c) Between <strong>11 am and 1 pm</strong> (4.5 > 1.5). <strong>(1 mark)</strong></p></div>
+</div>
+
+  <div class="section-head reveal" style="margin-top:2.8rem;">
+    <p class="kicker">Practice</p>
+    <h2>Gradient and zooming in worksheet</h2>
+    <p>Five short questions. Work through them, then reveal the mark scheme to check.</p>
+  </div>
+  <div class="callout reveal">
+    <ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>Find the gradient of the line through (2, 10) and (6, 26).</li><li>A car travels 120 km in 2 hours at a constant speed. Write its rate of change of distance.</li><li>For $y = x^2$, find the gradient of the chord from $x = 2$ to $x = 2.1$.</li><li>For $y = x^2$, find the gradient of the chord from $x = 3$ to $x = 3.01$ and estimate the gradient at $x = 3$.</li><li>A graph shows the amount in a savings account (£) against time (months). State the units of its gradient.</li></ol>
+  </div>
+  <div class="sub-block reveal">
+  <div class="sub-head"><h3>Mark scheme</h3><div class="chev">▾</div></div>
+  <div class="sub-body"><ol style='margin:.4rem 0 0 1.3rem;color:var(--text);font-size:.92rem;line-height:2;'><li>$\dfrac{26 - 10}{6 - 2} = \dfrac{16}{4} = $ <strong>4</strong>.</li><li>$120 \div 2 = $ <strong>60 km per hour</strong>.</li><li>$\dfrac{4.41 - 4}{0.1} = $ <strong>4.1</strong>.</li><li>$\dfrac{9.0601 - 9}{0.01} = 6.01$, so the gradient at $x = 3$ is approximately <strong>6</strong>.</li><li><strong>£ per month</strong>.</li></ol></div>
+</div>
+
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="../rates-of-change.html" class="btn btn-dark">← Back to Rates of Change</a>
+  </div>
+</div></section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../../viz.js"></script>
+<script src="../../app.js"></script>
+</body></html>

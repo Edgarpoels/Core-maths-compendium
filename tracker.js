@@ -117,6 +117,12 @@
       throw new Error("Couldn't find any recognised test sheets in this file. Please upload the tracker workbook you downloaded from this page, with some marks filled in.");
     }
 
+    // Paper 2B / 2C chapters (8-13) only appear in reports once a mark has been entered for them,
+    // so classes who only sit Paper 1 / 2A don't see a pile of "Not yet seen" topics.
+    var usedCodes = {};
+    Object.keys(studentMap).forEach(function (k) { Object.keys(studentMap[k].subskills).forEach(function (c) { usedCodes[c] = true; }); });
+    subskillList = subskillList.filter(function (sc) { return !/^(8|9|10|11|12|13)\./.test(sc.code) || usedCodes[sc.code]; });
+
     var students = Object.keys(studentMap).map(function (key) {
       var s = studentMap[key];
       var topics = subskillList.map(function (sc) {

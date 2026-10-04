@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rates of Change — Core Maths Compendium</title>
+<link rel="stylesheet" href="../style.css"/>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body><nav>
+  <a href="../index.html" class="brand">
+    <img src="../images/logo-mark.png" alt="PCMC" class="brand-mark">
+    <span class="brand-text">Core Maths Compendium<span>AQA 1350 · Level 3</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+    <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+  
+    <a href="../contact.html">Contact</a>
+    <a href="../forum.html">Q&amp;A</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#papers">Exam Structure</a>
+  <a href="../index.html#topics">Topics</a>
+  <a href="../papers.html">Past Papers</a>
+  <a href="../resources/index.html">Resources</a>
+  <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+
+  <a href="../contact.html">Contact</a>
+  <a href="../forum.html">Q&amp;A</a>
+</div>
+<div class="mobile-tabbar"><a href="../index.html">Home</a>
+    <a href="../index.html#papers">Exam Structure</a>
+    <a href="../index.html#topics">Topics</a>
+    <a href="../papers.html">Past Papers</a>
+    <a href="../resources/index.html">Resources</a>
+    <a href="../homework.html">Homework</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../forum.html">Q&amp;A</a></div>
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a> / Rates of Change</p>
+</div>
+<header class="hero" style="padding:3.2rem 0 2.8rem;">
+  <div class="container">
+    <p class="hero-eyebrow">3.12 · Paper 2C</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);">Rates of Change</h1>
+    <p class="lede">Gradients, chords and tangents, greatest and least values, and the link between distance, speed and acceleration.</p>
+  </div>
+</header>
+<section class="section"><div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Jump to a sub-skill</p>
+      <h2 style="font-size:1.3rem;">Practise one skill at a time</h2>
+      <p>Each sub-skill has its own animated explanation, step-by-step notes, a past-paper style question and a short worksheet with mark scheme.</p>
+    </div>
+    <div class="topic-tags" style="margin-bottom:2rem;">
+      <a href="subskills/rates-of-change-gradient.html">Gradient and zooming in</a>
+      <a href="subskills/rates-of-change-curves.html">Gradients of curves and optimisation</a>
+      <a href="subskills/rates-of-change-speed-acceleration.html">Speed and acceleration</a>
+    </div>
+    <div class="section-head reveal">
+    <p class="kicker">See it in action</p>
+    <h2>Animated explanation</h2>
+    <p>Scroll to the graphic and it plays by itself &mdash; press <strong>Replay</strong> to watch it again.</p>
+  </div>
+  <figure class="viz reveal" data-viz="rate" data-variant="tangent"></figure>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Gradient and zooming in</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.12a</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>The <strong>rate of change</strong> is the gradient: change in $y$ ÷ change in $x$, with units 'per' the $x$ unit. On a curve the rate changes. The <strong>average</strong> rate between two points is the gradient of the <strong>chord</strong>; as the two points get closer the chord gets closer to the <strong>tangent</strong> — the curve looks like a straight line when you zoom in.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Gradients of curves and optimisation</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.12b</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>The gradient of a curve at a point is the gradient of the <strong>tangent</strong> there. At a <strong>maximum or minimum</strong> the tangent is horizontal, so the gradient is 0. This is how to find greatest and least values, e.g. the biggest area for a fixed length of fencing.</p>
+  </div>
+</div>
+<div class="sub-block reveal">
+  <div class="sub-head">
+    <h3>Speed and acceleration</h3>
+    <div style="display:flex;align-items:center;gap:.8rem;"><span class="code">3.12c</span><span class="chev">▾</span></div>
+  </div>
+  <div class="sub-body">
+    <p>On a <strong>distance–time</strong> graph, gradient = <strong>speed</strong>. On a <strong>speed–time</strong> graph, gradient = <strong>acceleration</strong> and the <strong>area under the graph</strong> = distance travelled. For a curve, use a tangent to find the instantaneous speed or acceleration.</p>
+  </div>
+</div>
+<div class="callout green reveal" style="margin-top:1.4rem;">
+  <strong>Worked example</strong><br/><br/>
+  <p><strong>Estimate the gradient of $y = x^2$ at $x = 3$ by using a chord from $x = 3$ to $x = 3.01$.</strong></p>
+    <p>At $x = 3$: $y = 9$. At $x = 3.01$: $y = 9.0601$.</p><p>Gradient of the chord $= \dfrac{9.0601 - 9}{0.01} = \dfrac{0.0601}{0.01} = 6.01$.</p><p>The gradient at $x = 3$ is approximately <strong>6</strong> (the pattern for $y = x^2$ is gradient $= 2x$).</p>
+</div><div class="callout reveal" style="margin-top:1.4rem;">
+  <strong>Exam tip.</strong> Always include units with a rate of change ('metres per second', '£ per month'), and say what it means in context. A tangent must touch the curve at exactly one point and have the same direction as the curve there.
+</div><div class="section-head reveal" style="margin-top:2.8rem;">
+      <p class="kicker">Practice</p>
+      <h2>Resources for this topic</h2>
+    </div>
+    <div class="res-list">
+      <a href="https://drive.google.com/file/d/1vxExceHCS7KY267XJPm-eQbVDpShdQ_X/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📊</div>
+        <div><h4>Lesson presentation</h4><p>PowerPoint &middot; opens in Google Drive</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="https://drive.google.com/file/d/1xRDkT8YLvF1clTctVafYo72MzLTg2Ogf/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico sheet">📄</div>
+        <div><h4>End-of-topic test</h4><p>PDF &middot; printable</p></div>
+        <span class="res-type">Open</span>
+      </a><a href="https://drive.google.com/file/d/1v3rCLJKquch8g0HEFLLDl43pVnEd8t5V/view?usp=sharing" target="_blank" rel="noopener" class="res-row">
+        <div class="res-ico notes">🔑</div>
+        <div><h4>End-of-topic test &mdash; mark scheme</h4><p>PDF &middot; answers</p></div>
+        <span class="res-type">Open</span>
+      </a>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center;">
+      <a href="../resources/index.html" class="btn btn-dark">← Back to Resources</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fnote">
+        <strong style="color:#fff;font-family:'Fraunces',serif;">Core Maths Compendium</strong><br/>
+        A free resource hub for AQA Level 3 Mathematical Studies (1350).<br/>
+        Built for Winchmore School by Mr Pohl.
+      </div>
+      <div class="mono-tag">
+        Not affiliated with AQA · Spec 1350<br/>
+        Official spec: <a href="https://www.aqa.org.uk/subjects/mathematics/level-three/mathematics-1350/specification" target="_blank" rel="noopener">aqa.org.uk/1350</a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="../images/logo-full.png" alt="Mr Pohl's Core Maths Compendium logo" />
+    </div>
+  </div>
+</footer>
+<script src="../viz.js"></script>
+<script src="../app.js"></script>
