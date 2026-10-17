@@ -589,3 +589,35 @@ figure.viz { margin: 1.4rem auto 1.8rem; max-width: 780px; background: var(--pap
 .viz-replay { border: 1px solid var(--grid); background: var(--white); color: var(--ink-2); border-radius: 50px; padding: .35rem .9rem; font-size: .8rem; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; }
 .viz-replay:hover { border-color: var(--green); color: var(--green-dk); }
 @media (max-width: 600px) { .viz-bar { flex-direction: column; align-items: flex-start; gap: .5rem; } }
+
+/* ═══ DNEP MOVE NOTICE (side) ═══ */
+.dnep-notice { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; }
+.dnep-card {
+  width: 250px; background: var(--ink); color: #fff; padding: 1.1rem 1.1rem 1rem;
+  border-radius: 12px 0 0 12px; border-left: 4px solid var(--amber);
+  box-shadow: 0 8px 28px rgba(18,35,58,.35); font-size: .88rem; line-height: 1.45; position: relative;
+}
+.dnep-card strong { display: block; font-size: .98rem; margin-bottom: .45rem; padding-right: 1.2rem; }
+.dnep-card p { margin: 0 0 .8rem; color: #dbe4ef; }
+.dnep-link {
+  display: inline-block; background: var(--amber); color: var(--ink); font-weight: 600;
+  padding: .45rem .8rem; border-radius: 8px; text-decoration: none;
+}
+.dnep-link:hover, .dnep-link:focus-visible { background: #fff; }
+.dnep-close {
+  position: absolute; top: .35rem; right: .55rem; background: none; border: 0; color: #fff;
+  font-size: 1.4rem; line-height: 1; cursor: pointer; opacity: .8;
+}
+.dnep-close:hover { opacity: 1; }
+.dnep-tab {
+  display: none; writing-mode: vertical-rl; background: var(--ink); color: #fff; border: 0;
+  border-left: 4px solid var(--amber); border-radius: 10px 0 0 10px; padding: .9rem .5rem;
+  font: 600 .82rem/1 inherit; letter-spacing: .02em; cursor: pointer; box-shadow: 0 6px 20px rgba(18,35,58,.3);
+}
+.dnep-notice.is-closed .dnep-card { display: none; }
+.dnep-notice.is-closed .dnep-tab { display: block; }
+@media (max-width: 860px) {
+  .dnep-notice { top: auto; bottom: 14px; transform: none; }
+  .dnep-card { width: min(250px, 78vw); }
+}
+@media print { .dnep-notice { display: none; } }

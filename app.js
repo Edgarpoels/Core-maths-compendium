@@ -8,6 +8,33 @@ function toggleMenu(btn) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Side notice: Core Maths is moving to DNEP Education (dnep.co.uk)
+  (function () {
+    const KEY = 'dnep-notice-closed';
+    let closed = false;
+    try { closed = localStorage.getItem(KEY) === '1'; } catch (e) {}
+    const box = document.createElement('aside');
+    box.className = 'dnep-notice' + (closed ? ' is-closed' : '');
+    box.setAttribute('aria-label', 'Core Maths is moving to DNEP Education');
+    box.innerHTML =
+      '<button type="button" class="dnep-tab" aria-expanded="' + (!closed) + '">Moving to DNEP.co.uk</button>' +
+      '<div class="dnep-card">' +
+        '<button type="button" class="dnep-close" aria-label="Minimise this notice">&times;</button>' +
+        '<strong>Core Maths is moving to DNEP Education.</strong>' +
+        '<p>Everything here stays free. New and updated resources, such as revised booklets, new papers and the online tracker, will be published on <b>dnep.co.uk</b>. No sign-in needed for the Core Maths resources.</p>' +
+        '<a class="dnep-link" href="https://dnep.co.uk" rel="noopener">Visit dnep.co.uk &rarr;</a>' +
+      '</div>';
+    document.body.appendChild(box);
+    const tab = box.querySelector('.dnep-tab');
+    function setClosed(v) {
+      box.classList.toggle('is-closed', v);
+      tab.setAttribute('aria-expanded', String(!v));
+      try { localStorage.setItem(KEY, v ? '1' : '0'); } catch (e) {}
+    }
+    tab.addEventListener('click', () => setClosed(false));
+    box.querySelector('.dnep-close').addEventListener('click', () => setClosed(true));
+  })();
+
   // Subtopic accordions
   document.querySelectorAll('.sub-head').forEach(head => {
     head.addEventListener('click', () => {
