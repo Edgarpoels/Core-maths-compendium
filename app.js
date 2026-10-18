@@ -8,6 +8,23 @@ function toggleMenu(btn) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Nav link to the beta online course (all pages share this script)
+  (function () {
+    const self = document.querySelector('script[src$="app.js"]');
+    const root = self ? self.getAttribute('src').replace(/app\.js$/, '') : '';
+    const href = root + 'online-course.html';
+    const here = /online-course\.html$/.test(location.pathname);
+    document.querySelectorAll('.nav-links, #mobile-menu, .mobile-tabbar').forEach(box => {
+      if (box.querySelector('a[href$="online-course.html"]')) return;
+      const a = document.createElement('a');
+      a.href = href;
+      a.textContent = 'Beta course';
+      if (here) a.className = 'active';
+      const contact = box.querySelector('a[href$="contact.html"]');
+      box.insertBefore(a, contact || null);
+    });
+  })();
+
   // Side notice: Core Maths is moving to DNEP Education (dnep.co.uk)
   (function () {
     const KEY = 'dnep-notice-closed';

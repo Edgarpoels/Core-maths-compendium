@@ -621,3 +621,14 @@ figure.viz { margin: 1.4rem auto 1.8rem; max-width: 780px; background: var(--pap
   .dnep-card { width: min(250px, 78vw); }
 }
 @media print { .dnep-notice { display: none; } }
+
+/* ═══ DNEP ONLINE COURSE (beta) ═══ */
+.beta-tag { display:inline-block; vertical-align:middle; background:var(--amber); color:var(--ink); font-size:.5em; font-weight:700; letter-spacing:.08em; padding:.2em .6em; border-radius:6px; }
+.course-strip { background: var(--ink); color:#fff; padding: 1.6rem 0; border-bottom: 3px solid var(--amber); }
+.course-strip .container { display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
+.course-strip .kicker { color: var(--amber); font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin:0 0 .3rem; }
+.course-strip h2 { margin:0 0 .3rem; font-size:1.35rem; color:#fff; }
+.course-strip p { margin:0; color:#dbe4ef; }
+.course-box { background: var(--white); border:1px solid var(--grid); border-left:4px solid var(--green); border-radius: var(--radius); padding:1.6rem; max-width:640px; margin:0 auto 1.6rem; }
+.course-box h3 { margin-top:0; }
+.course-notes { max-width:640px; margin:0 auto; padding-left:1.2rem; line-height:1.6; }
